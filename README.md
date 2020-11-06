@@ -12,7 +12,7 @@ On the FlavourTable Platform, you will find all of the available recipes provide
 
 ## Wireframes
 *  Website Wireframe
-![HomePage](https://drive.google.com/file/d/1FSwRWIQ70ChM-ottWwt7cnD1JpFMgkNt/view)
+[Wireframe](https://drive.google.com/file/d/1FSwRWIQ70ChM-ottWwt7cnD1JpFMgkNt/view)
 
 ## Problem Domain
 we decided to build a website to help people who are interested in cooking especially who run out of ideas and help them to prepare the food with a faster way by offering them recipes suitable with the ingredients they have in thier kitchen.
