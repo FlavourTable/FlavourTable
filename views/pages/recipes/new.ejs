@@ -20,11 +20,13 @@
 
         <section>
             <form action="/search_name" method="POST">
-                <input id="meal" type="text" placeholder="Enter Meal">
+                <input name="query" id="query" type="text" placeholder="Enter Meal Name or Leave empty">
                 <br>
-                <input id="inIngredient" type="text" placeholder="Enter Included Ingredient">
+                <input name="page" id="page" type="text" value="1">
                 <br>
-                <input id="exIngredient" type="text" placeholder="Enter Excluded Ingredient">
+                <input name="includeIngredients" id="includeIngredients" type="text" placeholder="Enter Included Ingredient">
+                <br>
+                <input name="excludeIngredients" id="excludeIngredients" type="text" placeholder="Enter Excluded Ingredient">
                 <br>
                 <select name="diet" id="diet">
                     <optgroup>
@@ -58,6 +60,11 @@
                 <br>
                 <button type="submit">Submit</button>
             </form>
+        </section>
+        <section>
+
+        
+         
         </section>
     </main>
     <footer></footer>

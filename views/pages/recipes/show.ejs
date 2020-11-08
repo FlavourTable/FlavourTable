@@ -12,21 +12,56 @@
 
     <header></header>
     <main>
-        <%searchResults.forEach(recipe =>{%>
-        <img src="<%= recipe.image %>" alt="<%recipe.title %>" />
-        <h3> <%recipe.title%></h3>
-        <h4> <%recipe.readyInMinutes%></h4>
-        <h4><%recipe.summary%></h4>
-        <!-- 
-        <form action="/add" method="POST">
-            <input type="hidden" name="image" value="<%= recipe.image %>" />
-            <input type="hidden" name="title" value="<%recipe.title%>" />
-            <input type="hidden" name="readyInMinutes" value="<%= recipe.readyInMinutes %>" />
-            <input type="hidden" name="summary" value="<%= recipe.summary %>" />
-            <button name="ingredients"> Add To Favorite</button>
-        </form> -->
 
-        <%})%>
+        <% recipeResults.forEach(recipe=>{ %>
+
+            <div>
+                <img src="<%=recipe.image%>" alt="">
+                <h3><%=recipe.title%></h3>
+
+                <form action="/details" method="POST">
+                    <input name="titleMatch" id="query" type="text" value="<%=recipe.title%>">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+        <% }) %>
+
+        <form action="/search_name" method="POST">
+
+            <input name="query" id="query" value="<%=nioh.searchVar%>" style="display: none;">
+            <br>
+            <input name="page" id="page" value="<%=nioh.page%>" style="display: none;">
+            <br>
+            <input name="includeIngredients" id="includeIngredients" value="<%=nioh.ining%>" style="display: none;">
+            <br>
+            <input name="excludeIngredients" id="excludeIngredients" value="<%=nioh.excing%>" style="display: none;">
+            <br>
+            <input name="diet" id="diet" value="<%=nioh.diet%>" style="display: none;">
+            <br>
+            <input name="cuisine" id="cuisine" value="<%=nioh.cuisine%>" style="display: none;">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <p><%=nioh3.page%></p>
+        <form action="/search_name" method="POST">
+
+            <input name="query" id="query" value="<%=nioh2.searchVar%>" style="display: none;">
+            <br>
+            <input name="page" id="page" value="<%=nioh2.page%>" style="display: none;">
+            <br>
+            <input name="includeIngredients" id="includeIngredients" value="<%=nioh2.ining%>" style="display: none;">
+            <br>
+            <input name="excludeIngredients" id="excludeIngredients" value="<%=nioh2.excing%>" style="display: none;">
+            <br>
+            <input name="diet" id="diet" value="<%=nioh2.diet%>" style="display: none;">
+            <br>
+            <input name="cuisine" id="cuisine" value="<%=nioh2.cuisine%>" style="display: none;">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+
     </main>
     <footer></footer>
 </body>
