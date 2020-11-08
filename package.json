@@ -2,10 +2,10 @@
   "name": "flavourtable",
   "version": "1.0.0",
   "description": "FlavourTable Platform, you will find all of the available recipes provided by using the api.",
-  "main": "Server.js",
+  "main": "fakeServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon fakeServer.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
+    "nodemon": "^2.0.6",
     "pg": "^8.4.2",
     "superagent": "^6.1.0"
   }
