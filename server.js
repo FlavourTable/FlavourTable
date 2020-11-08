@@ -25,31 +25,157 @@ function searchForm(req, res) {
     res.render('pages/recipes/new');
 }
 
+app.post('/search_name', searchName);
+app.post('/details', details);
 
-let page = 1;
-app.get('/search_name', searchName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function details(req, res){
+
+
+    const queryParams = {
+        titleMatch: req.body.titleMatch,
+        maxAlcohol: 0,
+        addRecipeInformation: true,
+        fillIngredients: true,
+    };
+
+
+    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
+    return superagent.get(url)
+        .query(queryParams)
+        .then(value => {     
+                let myresult= value.body.results.map(elementX => {
+                    let extendedIng=elementX.extendedIngredients.map(x=>{
+                        return new Ingredient(x);
+                    })
+                    let analyzedInst=elementX.analyzedInstructions.map(x=>{
+                        return x.steps.map(hi=>{
+                            return new Step(hi);
+                        })
+                        
+                    })
+                    let name = new NameD(elementX);
+
+                    let resultArray =[name , analyzedInst ,extendedIng] ;
+                    return resultArray;
+                })             
+
+                return myresult;
+        })
+        .then(result => {
+            console.log(result[0])
+            res.render('pages/recipes/details', { recipeResults: result[0] });
+
+        })
+        .catch((err) => {
+            res.send('something went wrong..  ' + err);
+        })
+}
+
+function NameD(value) {
+    this.title = value.title;
+    this.image = value.image;
+    this.readyInMinutes = value.readyInMinutes;
+    this.spoonacularScore = value.spoonacularScore;
+    this.summary = value.summary;
+    // this.dishTypes = value.dishTypes.join(',');
+
+};
+//extendedIngredients
+function Ingredient(value) {
+    this.smallImage = `https://spoonacular.com/cdn/ingredients_100x100/${value.image}`;
+    this.OriginalString = value.originalString;
+
+};
+//analyzedInstructions.steps
+function Step(value) {
+    this.stepNumber = value.number;
+    this.stepDetails = value.step;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------
+
 
 function searchName(req, res) {
-    let ining;
-    if (req.query.includeIngredients.length > 1) {
-        ining = req.query.includeIngredients.join('+');
-    } else if (req.query.includeIngredients.length === 1) {
-        ining = req.query.includeIngredients[0];
+    let page = req.body.page;
+    console.log(req.body.query);
+    console.log(process.env.SPOONACULAR_API_KEY);
+    
+    let regex = /\b[A-z][A-z]*/g;
+
+    let temp_input_include = req.body.includeIngredients;
+    let ining = temp_input_include.match(regex);
+    if(ining !== null){
+
+        if (ining.length > 1) {
+            ining = ining.join('+');
+        } else if (ining.length === 1) {
+            ining = ining[0];
+        }
+      
+    } 
+    
+    let temp_input_exclude = req.body.excludeIngredients;
+    let excing = temp_input_exclude.match(regex);
+    if(excing !== null){
+
+        if (excing.length > 1) {
+            excing = excing.join('+');
+        } else if (excing.length === 1) {
+            excing = excing[0];
+        }
+
     }
-    let excing;
-    if (req.query.excludeIngredients.length > 1) {
-        excing = req.query.excludeIngredients.join('+');
-    } else if (req.query.excludeIngredients.length === 1) {
-        excing = req.query.excludeIngredients[0];
-    }
-    // let url = `https://api.spoonacular.com/recipes/complexSearch?query=${req.query}&apiKey=${SPOONACULAR_API_KEY}&fillIngredients=true`
 
     const numPerPage = 10;
     const start = ((page - 1) * numPerPage + 1);
     page += 1;
     const queryParams = {
-        apiKey: SPOONACULAR_API_KEY,
-        query: req.query.query,
+        query: req.body.query,
         maxAlcohol: 0,
         addRecipeInformation: true,
         fillIngredients: true,
@@ -57,56 +183,59 @@ function searchName(req, res) {
         number: numPerPage,
     };
 
-    if (ining !== 'none') { queryParams.includeIngredients = ining; }
-    if (excing !== 'none') { queryParams.excludeIngredients = excing; }
-    if (req.query.cuisine !== 'all') { queryParams.cuisine = req.query.cuisine; }
-    if (req.query.diet !== 'none') { queryParams.diet = req.query.diet; }
-    if (req.query.type !== 'all') { queryParams.type = req.query.type; }
+    let nextPage = {
+        page:Number(req.body.page)+1,
+        searchVar:req.body.query,
+        ining:req.body.includeIngredients,
+        excing:req.body.excludeIngredients,
+        cuisine:req.body.cuisine,
+        diet:req.body.diet,
+        type:req.body.type,
+    }
 
-    let url = `https://api.spoonacular.com/recipes/complexSearch`;
+    let previousPage = {
+        page:Number(req.body.page)-1,
+        searchVar:req.body.query,
+        ining:req.body.includeIngredients,
+        excing:req.body.excludeIngredients,
+        cuisine:req.body.cuisine,
+        diet:req.body.diet,
+        type:req.body.type,
+    }
+    let CurrentPage ={
+        page:Number(req.body.page),
+    }
+
+    if (ining !== null) { queryParams.includeIngredients = ining; }
+    if (excing !== null) { queryParams.excludeIngredients = excing; }
+
+    if (req.body.cuisine !== 'all') { queryParams.cuisine = req.body.cuisine; }
+    if (req.body.diet !== 'none') { queryParams.diet = req.body.diet; }
+    if (req.body.type !== 'all') { queryParams.type = req.body.type; }
+
+    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
+    console.log(url);
     return superagent.get(url)
         .query(queryParams)
-        .then(value => {
-            res.send(value.body.results.map(elementX => {
-                new Name(elementX);
-                value.body.results.extendedIngredients.map(elementY => {
-                    new Ingredient(elementY);
-                });
-                value.body.results.analyzedInstructions.steps.map(elementZ => {
-                    new Steps(elementZ);
-                });
-            }));
+        .then(value => {     
+                return value.body.results.map(elementX => {
+                return new Name(elementX);
+                })
         })
-        .then(results => {
-            res.render('pages/recipes/show', { searchResults: results });
-            console.log(results);
-        }).catch(() => {
-            res.send('something went wrong..  ');
+        .then(result => {
+            console.log(result);
+            res.render('pages/recipes/show', { recipeResults: result ,nioh:nextPage,nioh2:previousPage , nioh3:CurrentPage});
+        })
+        .catch((err) => {
+            res.send('something went wrong..  ' + err);
         })
 }
+
 
 function Name(value) {
     this.title = value.title;
     this.image = value.image;
-    this.readyInMinutes = value.readyInMinutes;
-    this.spoonacularScore = value.spoonacularScore;
-    this.summary = value.summary;
-    this.dishTypes = value.dishTypes.join(',');
-}
-//extendedIngredients
-function Ingredient(value) {
-    this.image = `https://spoonacular.com/cdn/ingredients_100x100/${value.image}`;
-    this.originalString = value.originalString;
-}
-//analyzedInstructions.steps
-function Steps(value) {
-    this.number = value.number;
-    this.step = value.step;
-}
+};
+
 // Listen
 app.listen(PORT, () => console.log(`You Successfully Connected To Port ${PORT}`));
-
-
-
-
-

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <header></header>
+    <main>
+
+
+            <div>
+                <img src="<%=recipeResults[0].image%>" alt="">
+                <h2><%=recipeResults[0].title%></h2>
+                <h3>Ready In Min:<%=recipeResults[0].readyInMinutes%></h3>
+                <h2>Score <%=recipeResults[0].spoonacularScore%></h2>
+                <p><%- recipeResults[0].summary%></p>
+
+                <% recipeResults[2].forEach(recipe=>{ %>
+                    <img src="<%=recipe.smallImage%>" alt="">
+                    <p><%= recipe.OriginalString%></p>
+                <% }) %>
+
+                <% recipeResults[1].forEach(recipe=>{ %>
+                    <% recipe.forEach(v=>{ %>
+                        <p><%=v.stepNumber%>- <%= v.stepDetails%></p>
+                    <% }) %>
+                <% }) %>
+
+            </div>
+            
+        
+    </main>
+    <footer></footer>
+</body>
+
+</html>
