@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ingredient</h1>
+    </header>
+    <main>
+
+        <section>
+            <form action="/search_name" method="POST">
+                <input id="meal" type="text" placeholder="Enter Meal">
+                <br>
+                <input id="inIngredient" type="text" placeholder="Enter Included Ingredient">
+                <br>
+                <input id="exIngredient" type="text" placeholder="Enter Excluded Ingredient">
+                <br>
+                <select name="diet" id="diet">
+                    <optgroup>
+                        <option value="none">None</option>
+                        <option value="Gluten Free"> Gluten Free</option>
+                        <option value="Ketogenic">Ketogenic</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                        <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Pescetarian">Pescetarian</option>
+                        <option value="Paleo">Paleo</option>
+                        <option value="Primal">Primal</option>
+                        <option value="Whole30">Whole30</option>
+                    </optgroup>
+                </select>
+                <br>
+                <select name="cuisine" id="cuisine">
+                    <optgroup>
+                        <option value="all">All</option>
+                        <option value="American"> American</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Middle-Eastern">Middle Eastern</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Korean">Korean</option>
+                    </optgroup>
+                </select>
+                <br>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>
