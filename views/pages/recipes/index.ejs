@@ -7,185 +7,231 @@
     <title>Document</title>
     <link rel="stylesheet" href="../public/css/index.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    
+    <%- include('./header') %>
+    <header>
+        <!-- <img class="headerImg" src="../../../public/images/img1.jpg" alt="" > -->
+        <video autoplay loop muted id="video" style="height:400px; width:100%;">
+            <source src="../../../public/images/background - 43653.mp4" type="video/mp4"> </video>
+    </header>
 
-<!-- slide show  (home page)  -->
-<main>
-    <section class="site-main page-index " role="main">
-        <div class="container">
-            <ul>
-                <li class="__photo"
-                    style="background: url('https://images.unsplash.com/photo-1528451635828-f28cd48439a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')no-repeat center; background-size: cover; ">
-                </li>
-                <li class="__photo"
-                    style="background: url('https://images.unsplash.com/photo-1521909944782-4aee70b674ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')no-repeat center; background-size: cover; ">
-                </li>
-                <li class="__photo"
-                    style="background: ('https://images.unsplash.com/photo-1541921671-10e275785336?ixlib=rb-1.2.1&auto=format&fit=crop&w=977&q=80')no-repeat center; background-size: cover;  ">
-                </li>
+
+
+
+    <!-- recipe 1 -->
+    <!-- Content Start - Just for visualization -->
+    <h1>This Week's Featured Recipes</h1>
+    <h2>Sweets</h2>
+    <div id="content">
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/cake.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv" data-test="pulse"></i>
+                </div>
+                <div class="name">
+                    <a href="https://sallysbakingaddiction.com/vanilla-cake/">
+                        <h3>white cake</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 4 Hours</li>
+                <li><i class="fa fa-leaf"></i> 200 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 15 People</li>
             </ul>
-
         </div>
-    </section>
-</main>
-
-
-
-<!-- recipe 1 -->
-<section id="rec1">
-    <div class="cont_principal">
-        <div class="cont_central">
-            <div class="cont_modal cont_modal_active">
-                <div class="cont_photo">
-                    <div class="cont_img_back">
-                        <img src="https://7ifz.com/_/201911/0003e636-f134-4008-9324-91f3b9d02849.jpeg"
-                            alt="" />
-                    </div>
-                    <div class="cont_mins">
-                        <div class="sub_mins">
-                            <h3>50</h3>
-                            <span>MINS</span>
-                        </div>
-                        <div class="cont_icon_right">
-                            <a href="#"> <i class="material-icons">&#xE8E7;</i></a>
-                        </div>
-                    </div>
-                    <div class="cont_servings">
-                        <h3>4</h3>
-                        <span>SERVINGS</span>
-                    </div>
-                    <div class="cont_detalles">
-                        <h3>M'sakhan</h3>
-                        <p>Tart sumac balances sweet caramelized onions in a roast chicken and flatbread dish traditionally baked in a wood-fired oven called a taboon. </p>
-                    </div>
+        <!-- Recipe End -->
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/cookies.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
                 </div>
-                <div class="cont_text_ingredients">
-                    <div class="cont_over_hidden">
-
-                        <div class="cont_tabs">
-                            <ul>
-                                <li><a href="#">
-                                        <h4>INGREDIENTS</h4>
-                                    </a></li>
-                                <li><a href="#">
-                                        <h4>PREPARATION</h4>
-                                    </a></li>
-                            </ul>
-                        </div>
-
-                        <div class="cont_text_det_preparation">
-                            <div class="cont_title_preparation">
-                                <p>STEP 1</p>
-                            </div>
-                            <div class="cont_info_preparation">
-                                <p>Heat oven to 375 degress</p>
-                            </div>
-                            <div class="cont_text_det_preparation">
-
-                                <div class="cont_title_preparation">
-                                    <p>STEP 2</p>
-                                </div>
-                                <div class="cont_info_preparation">
-                                    <p>Whisk flour and salt in a bowl. Combine water, sugar, and yeast in the bowl of a stand mixer fitted with a hook; let sit until foamy, about 10 minutes. With the motor running, slowly add flour mixture; mix until dough forms, about 3–4 minutes. Cover with plastic wrap; set in a warm place until doubled in size, about 1 hour.
-                                        </p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="cont_btn_mas_dets">
-                            <a href="#"><i class="material-icons">&#xE313;</i></a>
-                        </div>
-
-                    </div>
-                    <div class="cont_btn_open_dets">
-                        <a href="#e" onclick="open_close()"><i class="material-icons">&#xE314;</i></a>
-                    </div>
-
+                <div class="name">
+                    <a href="https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/">
+                        <h3>Cookies</h3>
+                    </a>
                 </div>
             </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 2 Hours</li>
+                <li><i class="fa fa-leaf"></i> 300 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 24 People</li>
+            </ul>
         </div>
-    </section>
+        <!-- Recipe End -->
 
-<!-- Recipe 2 -->
-
-<!-- <div id="rec2">
-
-<div class="cont_principal">
-    <div class="cont_central">
-        <div class="cont_modal cont_modal_active">
-            <div class="cont_photo">
-                <div class="cont_img_back">
-                    <img src="https://www.saveur.com/resizer/RHEzaDhl8prBjGZN0OIuH5sYq-c=/1293x970/filters:focal(1000x750:1001x751)/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/TKJMR2KXXMMQJALR3WSR4IP5EA.jpg"
-                        alt="" />
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/donuts.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
                 </div>
-                <div class="cont_mins">
-                    <div class="sub_mins">
-                        <h3>2</h3>
-                        <span>HR</span>
-                    </div>
-                    <div class="cont_icon_right">
-                        <a href="#"> <i class="material-icons">&#xE8E7;</i></a>
-                    </div>
-                </div>
-                <div class="cont_servings">
-                    <h3>4</h3>
-                    <span>SERVINGS</span>
-                </div>
-                <div class="cont_detalles">
-                    <h3>Dolmas</h3>
-                    <p>fresh grape leaves; they are more tender and flavorful than the jarred types. Out of season, jarred leaves are a fine substitute </p>
+                <div class="name">
+                    <a href="https://www.delish.com/cooking/recipe-ideas/a24788319/how-to-make-donuts-at-home/">
+                        <h3>Donuts</h3>
+                    </a>
                 </div>
             </div>
-            <div class="cont_text_ingredients">
-                <div class="cont_over_hidden">
-
-                    <div class="cont_tabs">
-                        <ul>
-                            <li><a href="#">
-                                    <h4>INGREDIENTS</h4>
-                                </a></li>
-                            <li><a href="#">
-                                    <h4>PREPARATION</h4>
-                                </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="cont_text_det_preparation">
-                        <div class="cont_title_preparation">
-                            <p>STEP 1</p>
-                        </div>
-                        <div class="cont_info_preparation">
-                            <p>Heat oven to 375 degress</p>
-                        </div>
-                        <div class="cont_text_det_preparation">
-
-                            <div class="cont_title_preparation">
-                                <p>STEP 2</p>
-                            </div>
-                            <div class="cont_info_preparation">
-                                <p>Bring a large pot of water to a rolling boil. Fill a large bowl 2⁄3 of the way with ice water. Plunge the grape leaves into the boiling water and cook for 1 minute to tenderize. Using tongs or a slotted spoon, lift the leaves out of the pot and drop them immediately into the ice water. Strain the leaves, use a clean towel to pat them dry, then set them aside while you prepare the dolma filling.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="cont_btn_mas_dets">
-                        <a href="#"><i class="material-icons">&#xE313;</i></a>
-                    </div>
-
-                </div>
-                <div class="cont_btn_open_dets">
-                    <a href="#e" onclick="open_close()"><i class="material-icons">&#xE314;</i></a>
-                </div>
-
-            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 2 Hours</li>
+                <li><i class="fa fa-leaf"></i> 400 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 16 People</li>
+            </ul>
         </div>
+        <!-- Recipe End -->
+
+
+
+
+        <h2>Breakfast</h2>
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/frenchtoast.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://www.mccormick.com/recipes/breakfast-brunch/quick-and-easy-french-toast">
+                        <h3>French Toast</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 5 Minutes</li>
+                <li><i class="fa fa-leaf"></i> 95 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 1 Person</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/flafel.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://www.themediterraneandish.com/how-to-make-falafel/">
+                        <h3>flafel</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 40 Minutes</li>
+                <li><i class="fa fa-leaf"></i> 95 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 24 People</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/salad.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://www.loveandlemons.com/salad-recipes/">
+                        <h3>Salad</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 30 Minutes</li>
+                <li><i class="fa fa-leaf"></i> 120 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 2 People</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+
+
+
+
+        <h2>Lunch</h2>
+
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/sushi.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://www.fifteenspatulas.com/homemade-sushi/">
+                        <h3>sushi</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 45 Minutes</li>
+                <li><i class="fa fa-leaf"></i> 190 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 3 People</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+
+        <!-- Recipe Start -->
+
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/maklobah.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://www.legalnomads.com/maklouba/">
+                        <h3>Maklobah</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 2 Hours</li>
+                <li><i class="fa fa-leaf"></i> 400 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 7 People</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+
+        <!-- Recipe Start -->
+        <div class="recipe">
+            <div class="image">
+                <img src="../../../public/images/dawali.jpg">
+                <div class="likes">
+                    <i class="fa fa-heart-o lv"></i>
+                </div>
+                <div class="name">
+                    <a href="https://feelgoodfoodie.net/recipe/lebanese-stuffed-grape-leaves/">
+                        <h3>Dwali</h3>
+                    </a>
+                </div>
+            </div>
+            <ul class="media">
+                <li><i class="fa fa-clock-o"></i> 2 Hours</li>
+                <li><i class="fa fa-leaf"></i> 300 Calories</li>
+                <li><i class="fa fa-cutlery"></i> 2 People</li>
+            </ul>
+        </div>
+        <!-- Recipe End -->
+
     </div>
-</div> -->
 
-        <script src="../public/js/index.js"></script>
+    <footer>
+
+        </div>
+    </footer>
+    <!-- Content End -->
+
+    <script src="../public/js/index.js"></script>
 </body>
 
 </html>
