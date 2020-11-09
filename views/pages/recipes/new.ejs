@@ -19,14 +19,16 @@
     <main>
 
         <section>
-            <form action="/search_name" method="POST">
+            <form action="/search_name" method="POST" id="form1">
                 <input name="query" id="query" type="text" placeholder="Enter Meal Name or Leave empty">
                 <br>
                 <input name="page" id="page" type="text" value="1">
                 <br>
-                <input name="includeIngredients" id="includeIngredients" type="text" placeholder="Enter Included Ingredient">
+                <input name="includeIngredients" id="includeIngredients" type="text"
+                    placeholder="Enter Included Ingredient">
                 <br>
-                <input name="excludeIngredients" id="excludeIngredients" type="text" placeholder="Enter Excluded Ingredient">
+                <input name="excludeIngredients" id="excludeIngredients" type="text"
+                    placeholder="Enter Excluded Ingredient">
                 <br>
                 <select name="diet" id="diet">
                     <optgroup>
@@ -58,16 +60,22 @@
                 </select>
                 <br>
                 <br>
-                <button type="submit">Submit</button>
+                <button type="submit" >Submit</button>
             </form>
+
+
+
+            
         </section>
         <section>
 
-        
-         
+
+
         </section>
     </main>
     <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 
 </body>
 

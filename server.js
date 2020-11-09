@@ -81,7 +81,7 @@ function details(req, res){
                 return myresult;
         })
         .then(result => {
-            console.log(result[0])
+         
             res.render('pages/recipes/details', { recipeResults: result[0] });
 
         })
@@ -142,8 +142,7 @@ function Step(value) {
 
 function searchName(req, res) {
     let page = req.body.page;
-    console.log(req.body.query);
-    console.log(process.env.SPOONACULAR_API_KEY);
+  
     
     let regex = /\b[A-z][A-z]*/g;
 
@@ -192,7 +191,7 @@ function searchName(req, res) {
         diet:req.body.diet,
         type:req.body.type,
     }
-
+    
     let previousPage = {
         page:Number(req.body.page)-1,
         searchVar:req.body.query,
@@ -202,6 +201,7 @@ function searchName(req, res) {
         diet:req.body.diet,
         type:req.body.type,
     }
+
     let CurrentPage ={
         page:Number(req.body.page),
     }
@@ -214,7 +214,9 @@ function searchName(req, res) {
     if (req.body.type !== 'all') { queryParams.type = req.body.type; }
 
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
-    console.log(url);
+   
+    
+
     return superagent.get(url)
         .query(queryParams)
         .then(value => {     
@@ -223,19 +225,122 @@ function searchName(req, res) {
                 })
         })
         .then(result => {
-            console.log(result);
+
             res.render('pages/recipes/show', { recipeResults: result ,nioh:nextPage,nioh2:previousPage , nioh3:CurrentPage});
         })
         .catch((err) => {
             res.send('something went wrong..  ' + err);
         })
+
+        
+
+
+
+        
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function checkNext(req, res) {
+    let page = req.body.page;
+   console.log('hi ');
+    
+    let regex = /\b[A-z][A-z]*/g;
+
+    let temp_input_include = req.body.includeIngredients;
+    let ining = temp_input_include.match(regex);
+    if(ining !== null){
+
+        if (ining.length > 1) {
+            ining = ining.join('+');
+        } else if (ining.length === 1) {
+            ining = ining[0];
+        }
+      
+    } 
+    
+    let temp_input_exclude = req.body.excludeIngredients;
+    let excing = temp_input_exclude.match(regex);
+    if(excing !== null){
+
+        if (excing.length > 1) {
+            excing = excing.join('+');
+        } else if (excing.length === 1) {
+            excing = excing[0];
+        }
+
+    }
+
+    const numPerPage = 10;
+    const start = ((page - 1) * numPerPage + 1);
+    page += 1;
+    const queryParamsNext = {
+        query: req.body.query,
+        maxAlcohol: 0,
+        addRecipeInformation: true,
+        fillIngredients: true,
+        offset: start+1,
+        number: numPerPage,
+    };
+
+   
+
+    if (ining !== null) { queryParamsNext.includeIngredients = ining; }
+    if (excing !== null) {queryParamsNext.excludeIngredients = excing; }
+
+    if (req.body.cuisine !== 'all') { queryParamsNext.cuisine = req.body.cuisine; }
+    if (req.body.diet !== 'none') { queryParamsNext.diet = req.body.diet; }
+    if (req.body.type !== 'all') { queryParamsNext.type = req.body.type; }
+
+    let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
+  
+    return superagent.get(url)
+        .query( queryParamsNext)
+        .then(value => {     
+                return value.body.results.map(elementX => {
+                return new Name(elementX);
+                })
+        })
+        .then(result => {
+            console.log(result);
+            if(result.length < 1){
+                res.render('pages/recipes/show', { nextPage : 'false'});
+            }else if(result.length >1){
+                res.render('pages/recipes/show', { nextPage : 'true'});
+
+            }
+        })
+        .catch((err) => {
+            res.send('something went wrong..  ' + err);
+        })
+        
+}
+
+
+
+
+
+
+
 
 
 function Name(value) {
     this.title = value.title;
     this.image = value.image;
 };
+
 
 // Listen
 app.listen(PORT, () => console.log(`You Successfully Connected To Port ${PORT}`));
