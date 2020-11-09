@@ -81,7 +81,7 @@ function details(req, res){
                 return myresult;
         })
         .then(result => {
-            console.log(result[0])
+         
             res.render('pages/recipes/details', { recipeResults: result[0] });
 
         })
@@ -113,37 +113,13 @@ function Step(value) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // -----------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------
 
 
 function searchName(req, res) {
     let page = req.body.page;
-    console.log(req.body.query);
-    console.log(process.env.SPOONACULAR_API_KEY);
+  
     
     let regex = /\b[A-z][A-z]*/g;
 
@@ -192,7 +168,7 @@ function searchName(req, res) {
         diet:req.body.diet,
         type:req.body.type,
     }
-
+    
     let previousPage = {
         page:Number(req.body.page)-1,
         searchVar:req.body.query,
@@ -202,6 +178,7 @@ function searchName(req, res) {
         diet:req.body.diet,
         type:req.body.type,
     }
+
     let CurrentPage ={
         page:Number(req.body.page),
     }
@@ -214,7 +191,9 @@ function searchName(req, res) {
     if (req.body.type !== 'all') { queryParams.type = req.body.type; }
 
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
-    console.log(url);
+   
+    
+
     return superagent.get(url)
         .query(queryParams)
         .then(value => {     
@@ -223,12 +202,18 @@ function searchName(req, res) {
                 })
         })
         .then(result => {
-            console.log(result);
+
             res.render('pages/recipes/show', { recipeResults: result ,nioh:nextPage,nioh2:previousPage , nioh3:CurrentPage});
         })
         .catch((err) => {
             res.send('something went wrong..  ' + err);
         })
+
+        
+
+
+
+        
 }
 
 
@@ -236,6 +221,7 @@ function Name(value) {
     this.title = value.title;
     this.image = value.image;
 };
+
 
 // Listen
 app.listen(PORT, () => console.log(`You Successfully Connected To Port ${PORT}`));

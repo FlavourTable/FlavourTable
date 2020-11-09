@@ -15,55 +15,67 @@
 
         <% recipeResults.forEach(recipe=>{ %>
 
-            <div>
-                <img src="<%=recipe.image%>" alt="">
-                <h3><%=recipe.title%></h3>
+        <div>
+            <img src="<%=recipe.image%>" alt="">
+            <h3><%=recipe.title%></h3>
 
-                <form action="/details" method="POST">
-                    <input name="titleMatch" id="query" type="text" value="<%=recipe.title%>">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            
+            <form action="/details" method="POST" style="width: 100%; height: 100%;" >
+                <input name="titleMatch" id="query" type="text" value="<%=recipe.title%> " style = "display: none;">
+                <button  type="submit" >Submit</button>
+            </form>
+        </div>
+
         <% }) %>
 
+        <p id="checknext" > </p>
         <form action="/search_name" method="POST">
 
-            <input name="query" id="query" value="<%=nioh.searchVar%>" style="display: none;">
+            <input name="query" value="<%=nioh.searchVar%>" style="display: none;">
             <br>
-            <input name="page" id="page" value="<%=nioh.page%>" style="display: none;">
+            <input name="page" value="<%=nioh.page%>" style="display: none;">
             <br>
-            <input name="includeIngredients" id="includeIngredients" value="<%=nioh.ining%>" style="display: none;">
+            <input name="includeIngredients" value="<%=nioh.ining%>" style="display: none;">
             <br>
-            <input name="excludeIngredients" id="excludeIngredients" value="<%=nioh.excing%>" style="display: none;">
+            <input name="excludeIngredients" value="<%=nioh.excing%>" style="display: none;">
             <br>
-            <input name="diet" id="diet" value="<%=nioh.diet%>" style="display: none;">
+            <input name="diet" value="<%=nioh.diet%>" style="display: none;">
             <br>
-            <input name="cuisine" id="cuisine" value="<%=nioh.cuisine%>" style="display: none;">
+            <input name="cuisine" value="<%=nioh.cuisine%>" style="display: none;">
             <br>
             <button type="submit">Submit</button>
         </form>
-        <p><%=nioh3.page%></p>
+        <p id="currPage"><%=nioh3.page%></p>
         <form action="/search_name" method="POST">
 
-            <input name="query" id="query" value="<%=nioh2.searchVar%>" style="display: none;">
+            <input name="query" value="<%=nioh2.searchVar%>" style="display: none;">
             <br>
-            <input name="page" id="page" value="<%=nioh2.page%>" style="display: none;">
+            <input name="page" value="<%=nioh2.page%>" style="display: none;">
             <br>
-            <input name="includeIngredients" id="includeIngredients" value="<%=nioh2.ining%>" style="display: none;">
+            <input name="includeIngredients" value="<%=nioh2.ining%>" style="display: none;">
             <br>
-            <input name="excludeIngredients" id="excludeIngredients" value="<%=nioh2.excing%>" style="display: none;">
+            <input name="excludeIngredients" value="<%=nioh2.excing%>" style="display: none;">
             <br>
-            <input name="diet" id="diet" value="<%=nioh2.diet%>" style="display: none;">
+            <input name="diet" value="<%=nioh2.diet%>" style="display: none;">
             <br>
-            <input name="cuisine" id="cuisine" value="<%=nioh2.cuisine%>" style="display: none;">
+            <input name="cuisine" value="<%=nioh2.cuisine%>" style="display: none;">
             <br>
-            <button type="submit">Submit</button>
+            <button   id="prevPage" type="submit">Submit</button>
         </form>
 
 
     </main>
     <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            console.log("ready!");
+            if (document.getElementById('currPage').textContent == 1) {
+                document.getElementById('prevPage').style.display = 'none';
+            }
+            console.log(document.getElementById('currPage').textContent);
+        });
+    </script>
 </body>
 
 </html>
