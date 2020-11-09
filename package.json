@@ -2,10 +2,10 @@
   "name": "flavourtable",
   "version": "1.0.0",
   "description": "FlavourTable Platform, you will find all of the available recipes provided by using the api.",
-  "main": "fakeServer.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon fakeServer.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",

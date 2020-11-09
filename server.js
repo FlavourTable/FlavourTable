@@ -6,8 +6,8 @@ const app = express();
 const cors = require('cors');
 const pg = require('pg');
 require('dotenv').config();
-// const DATABASE_URL = process.env.DATABASE_URL;
-// const client = new pg.Client(DATABASE_URL);
+const DATABASE_URL = process.env.DATABASE_URL;
+const client = new pg.Client(DATABASE_URL);
 // App (express)
 
 app.use(cors());
@@ -16,19 +16,19 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT;
 // Enable CSS
-app.get('/css' , testCSS);
-app.get('/about' , testAbout);
-app.get('/index' , testIndex);
+app.get('/css', testCSS);
+app.get('/about', testAbout);
+app.get('/index', testIndex);
 // Enable CSS
 
 app.use('/public', express.static('public'));
-function testCSS(req , res){
+function testCSS(req, res) {
     res.render('pages/recipes/partials/header');
 }
-function testAbout(req , res){
+function testAbout(req, res) {
     res.render('pages/recipes/aboutus');
 }
-function testIndex(req , res){
+function testIndex(req, res) {
     res.render('pages/recipes/index');
 }
 
@@ -44,6 +44,29 @@ function searchForm(req, res) {
 
 app.post('/search_name', searchName);
 app.post('/details', details);
+app.post('/favorite', addToFavorite);
+// app.put('/recipe/update/:id', updateBookForm);
+// app.delete('/recipe/delete/:id', deleteBook);
+
+
+
+
+
+function addToFavorite(req, res) {
+    let { image, title, readyInMinutes, summary, stepDetails } = req.body;
+    let SQL = 'INSERT INTO recipe (image_url, title, readyInMinutes, summary, stepDetails) VALUES ($1, $2, $3, $4, $5)';
+    let values = [image, title, readyInMinutes, summary, stepDetails];
+    console.log(values);
+    client.query(SQL, values).then(SQL = 'SELECT * FROM recipe;');
+    // values = [req.body.title];
+    return client.query(SQL)
+        .then(result => {
+            // console.log('wwwwwwwwww', result.rows[0]);
+            res.redirect(`/favorite/${result.rows[0]}`)
+        })
+
+
+}
 
 
 
@@ -59,12 +82,7 @@ app.post('/details', details);
 
 
 
-
-
-
-
-
-function details(req, res){
+function details(req, res) {
 
 
     const queryParams = {
@@ -78,27 +96,27 @@ function details(req, res){
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
     return superagent.get(url)
         .query(queryParams)
-        .then(value => {     
-                let myresult= value.body.results.map(elementX => {
-                    let extendedIng=elementX.extendedIngredients.map(x=>{
-                        return new Ingredient(x);
+        .then(value => {
+            let myresult = value.body.results.map(elementX => {
+                let extendedIng = elementX.extendedIngredients.map(x => {
+                    return new Ingredient(x);
+                })
+                let analyzedInst = elementX.analyzedInstructions.map(x => {
+                    return x.steps.map(hi => {
+                        return new Step(hi);
                     })
-                    let analyzedInst=elementX.analyzedInstructions.map(x=>{
-                        return x.steps.map(hi=>{
-                            return new Step(hi);
-                        })
-                        
-                    })
-                    let name = new NameD(elementX);
 
-                    let resultArray =[name , analyzedInst ,extendedIng] ;
-                    return resultArray;
-                })             
+                })
+                let name = new NameD(elementX);
 
-                return myresult;
+                let resultArray = [name, analyzedInst, extendedIng];
+                return resultArray;
+            })
+
+            return myresult;
         })
         .then(result => {
-         
+
             res.render('pages/recipes/details', { recipeResults: result[0] });
 
         })
@@ -136,25 +154,25 @@ function Step(value) {
 
 function searchName(req, res) {
     let page = req.body.page;
-  
-    
+
+
     let regex = /\b[A-z][A-z]*/g;
 
     let temp_input_include = req.body.includeIngredients;
     let ining = temp_input_include.match(regex);
-    if(ining !== null){
+    if (ining !== null) {
 
         if (ining.length > 1) {
             ining = ining.join('+');
         } else if (ining.length === 1) {
             ining = ining[0];
         }
-      
-    } 
-    
+
+    }
+
     let temp_input_exclude = req.body.excludeIngredients;
     let excing = temp_input_exclude.match(regex);
-    if(excing !== null){
+    if (excing !== null) {
 
         if (excing.length > 1) {
             excing = excing.join('+');
@@ -177,27 +195,27 @@ function searchName(req, res) {
     };
 
     let nextPage = {
-        page:Number(req.body.page)+1,
-        searchVar:req.body.query,
-        ining:req.body.includeIngredients,
-        excing:req.body.excludeIngredients,
-        cuisine:req.body.cuisine,
-        diet:req.body.diet,
-        type:req.body.type,
-    }
-    
-    let previousPage = {
-        page:Number(req.body.page)-1,
-        searchVar:req.body.query,
-        ining:req.body.includeIngredients,
-        excing:req.body.excludeIngredients,
-        cuisine:req.body.cuisine,
-        diet:req.body.diet,
-        type:req.body.type,
+        page: Number(req.body.page) + 1,
+        searchVar: req.body.query,
+        ining: req.body.includeIngredients,
+        excing: req.body.excludeIngredients,
+        cuisine: req.body.cuisine,
+        diet: req.body.diet,
+        type: req.body.type,
     }
 
-    let CurrentPage ={
-        page:Number(req.body.page),
+    let previousPage = {
+        page: Number(req.body.page) - 1,
+        searchVar: req.body.query,
+        ining: req.body.includeIngredients,
+        excing: req.body.excludeIngredients,
+        cuisine: req.body.cuisine,
+        diet: req.body.diet,
+        type: req.body.type,
+    }
+
+    let CurrentPage = {
+        page: Number(req.body.page),
     }
 
     if (ining !== null) { queryParams.includeIngredients = ining; }
@@ -208,37 +226,73 @@ function searchName(req, res) {
     if (req.body.type !== 'all') { queryParams.type = req.body.type; }
 
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
-   
-    
+
+
 
     return superagent.get(url)
         .query(queryParams)
-        .then(value => {     
-                return value.body.results.map(elementX => {
-                return new Name(elementX);
+        .then(value => {
+            let myresult = value.body.results.map(elementX => {
+                let extendedIng = elementX.extendedIngredients.map(x => {
+                    return new Ingredient(x);
                 })
+                let analyzedInst = elementX.analyzedInstructions.map(x => {
+                    return x.steps.map(hi => {
+                        return new Step(hi);
+                    })
+
+                })
+                let name = new Name(elementX);
+
+                let resultArray = [name, analyzedInst, extendedIng];
+                return resultArray;
+            })
+
+            return myresult;
+
         })
         .then(result => {
 
-            res.render('pages/recipes/show', { recipeResults: result ,nioh:nextPage,nioh2:previousPage , nioh3:CurrentPage});
+            res.render('pages/recipes/show', { recipeResults: result, nioh: nextPage, nioh2: previousPage, nioh3: CurrentPage });
         })
         .catch((err) => {
             res.send('something went wrong..  ' + err);
         })
 
-        
 
 
 
-        
+
+
 }
 
 
 function Name(value) {
+
     this.title = value.title;
     this.image = value.image;
+    this.readyInMinutes = value.readyInMinutes;
+    this.summary = value.summary;
+
+
+};
+function Ingredient(value) {
+    this.smallImage = `https://spoonacular.com/cdn/ingredients_100x100/${value.image}`;
+    this.OriginalString = value.originalString;
+
+};
+//analyzedInstructions.steps
+function Step(value) {
+    this.stepNumber = value.number;
+    this.stepDetails = value.step;
 };
 
 
+
+
+
+
 // Listen
-app.listen(PORT, () => console.log(`You Successfully Connected To Port ${PORT}`));
+client.connect().then(() => {
+    app.listen(PORT, () => console.log(`You Successfully Connected To Port: ${PORT}`));
+}).catch(() => console.log(`Could not connect to database`));
