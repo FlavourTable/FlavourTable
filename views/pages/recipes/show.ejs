@@ -5,26 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../public/css/show.css">
 
 </head>
 
 <body>
 
-    <header></header>
+    
+        <%- include('./header') %>
+    
     <main>
-
+<div id="card-container">
         <% recipeResults.forEach(recipe=>{ %>
 
-        <div>
+        <div class="card">
             <img src="<%=recipe.image%>" alt="">
-            <h3><%=recipe.title%></h3>
-
+            <div class="card-body">
+            <h3 class="showTitle"><%=recipe.title%></h3>
+           </div>
             <form action="/details" method="POST" style="width: 100%; height: 100%;" >
                 <input name="titleMatch" id="query" type="text" value="<%=recipe.title%> " style = "display: none;">
-                <button  type="submit" >Submit</button>
+                <button id=""  type="submit" >Submit</button>
             </form>
         </div>
-
+</div>
         <% }) %>
 
         <p id="checknext" > </p>
