@@ -9,13 +9,30 @@ require('dotenv').config();
 // const DATABASE_URL = process.env.DATABASE_URL;
 // const client = new pg.Client(DATABASE_URL);
 // App (express)
+
 app.use(cors());
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT;
 // Enable CSS
-app.use(express.static('public'));
+app.get('/css' , testCSS);
+app.get('/about' , testAbout);
+app.get('/index' , testIndex);
+// Enable CSS
+
+app.use('/public', express.static('public'));
+function testCSS(req , res){
+    res.render('pages/recipes/partials/header');
+}
+function testAbout(req , res){
+    res.render('pages/recipes/aboutus');
+}
+function testIndex(req , res){
+    res.render('pages/recipes/index');
+}
+
+
 const SPOONACULAR_API_KEY = process.env.SPOONACAULR_API_KEY;
 
 
