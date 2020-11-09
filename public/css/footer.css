@@ -1,0 +1,13 @@
+.footer {
+    clear: both;
+    padding: 25px 10px;
+    background: rgb(43, 41, 41);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    border-top: solid 15px #9d9fa1;
+}
+
+a:link, a:visited {
+    color: #9d9fa1;
+}
