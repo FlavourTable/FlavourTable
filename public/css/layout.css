@@ -11,12 +11,11 @@
 
 /**/
   #navBar{ 
-    height: 70px;
+    height: 80px;
     background-color: rgb(43, 41, 41);
     color: white;
-    line-height: 70px;
+    line-height: 80px;
     font-size: 30px;
-     /* padding-left: 50%;  */
      text-align: center;
      box-shadow: 0 0 20px #cccccc;
      position: fixed;
@@ -26,9 +25,12 @@
 #menu{
   position: fixed;
   top: 5px;
-  left: 5px;
+  left: 3px;
   z-index: 20000;
 }
+
+
+
 
 #div_nav{
   
@@ -90,10 +92,6 @@
     font-size: 36px;
     margin-left: 50px;
   }
-
-
-  
-
 
 
 @media (max-width: 480px){
