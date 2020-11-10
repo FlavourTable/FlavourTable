@@ -14,7 +14,7 @@
     <main>
 
         <% recipeResults.forEach(recipe=>{ %>
-
+  
         <div>
             <img src="<%=recipe[0].image%>" alt="">
             <h3><%=recipe[0].title%></h3>
@@ -31,11 +31,11 @@
             <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>" style="display: none;" />
             <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
             <input name="summary" type="text" value="<%= recipe[0].summary %>" style="display: none;" />
-            <% recipe.forEach(v=>{ %>
-
-            <input name="stepDetails" type="text" value=" <%= v.stepDetails%>" style="display: none;" />
+            <% recipe[1].forEach(v=>{ %>
+                <% v.forEach(w=>{ %>
+            <input name="stepDetails" type="text" value=" <%= w.stepDetails %>" style="display: none;" />
             <% }) %>
-
+            <% }) %>
 
             <div><button id="/favorite/<%=recipe[0].id%>" type="submit">Add To Favorite</button></div>
 
