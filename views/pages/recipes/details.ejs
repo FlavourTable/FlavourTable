@@ -5,32 +5,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="../../../public/css/details.css">
 </head>
 
-<body>
+<body>  
+    <%- include('./header') %>
 
-    <header></header>
+    <!-- <div class="wrapper wrapper--high">
+        <div class="pie spinner-left"></div>
+        <div class="pie spinner"></div>
+        
+        <div class="mask"></div>
+        <div class="mask-right"></div>
+        
+        <div class="content">!</div>
+    </div> -->
+
     <main>
 
+        
 
-            <div>
-                <img src="<%=recipeResults[0].image%>" alt="">
-                <h2><%=recipeResults[0].title%></h2>
-                <h3>Ready In Min:<%=recipeResults[0].readyInMinutes%></h3>
-                <h2>Score <%=recipeResults[0].spoonacularScore%></h2>
-                <p><%- recipeResults[0].summary%></p>
 
-                <% recipeResults[2].forEach(recipe=>{ %>
-                    <img src="<%=recipe.smallImage%>" alt="">
-                    <p><%= recipe.OriginalString%></p>
-                <% }) %>
+            <div id="content">
+                <div id="firstSect">
 
-                <% recipeResults[1].forEach(recipe=>{ %>
-                    <% recipe.forEach(v=>{ %>
-                        <p><%=v.stepNumber%>- <%= v.stepDetails%></p>
+                    <div id="skew"></div>
+
+
+                    <div>
+                        <h2><%=recipeResults[0].title%></h2>
+    
+                        <div style="display: flex;">
+                            
+                            
+                            <h3>Ready In Min:<%=recipeResults[0].readyInMinutes%> <br> Score: <%=recipeResults[0].spoonacularScore%></h3> <br>
+
+                            
+
+                        </div>
+                        
+        
+                    </div>
+
+
+                    <img src="<%=recipeResults[0].image%>" alt="" class="preview-img">
+
+
+                </div>
+
+                <div id="firePlace">
+                    <div id="campfire">
+                        <div id="logs">
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <div id="flames">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                </div>
+                
+                <div id="summary">
+                    <h2>Summary</h2>
+                    <p><%- recipeResults[0].summary%></p>
+
+                </div>
+
+
+                <div id="ingr">
+                    <h2 style="text-align: center;margin-top: 0">Required Ingredients</h2>
+                    <% recipeResults[2].forEach(recipe=>{ %>
+                        <div class="smolcont">
+                            <img style="width: 80px;height: 60px;" src="<%=recipe.smallImage%>" alt="" class="smolim">
+                            <p class="smolium"><%= recipe.OriginalString%></p>
+                        </div>
+
                     <% }) %>
-                <% }) %>
+                </div>
+                
+                <div  style="width: 70%; padding: 60px 0;">
+                    <h2 style="text-align: center;">Preparing Steps</h2>
+                    <div>
+                        <% recipeResults[1].forEach(recipe=>{ %>
+                            <% recipe.forEach(v=>{ %>
+                                <p class="step"><%=v.stepNumber%>- <%= v.stepDetails%></p> <br>
+                            <% }) %>
+                        <% }) %>
+    
+                    </div>
+                </div>
+                
 
             </div>
             
