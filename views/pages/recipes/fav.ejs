@@ -1,0 +1,41 @@
+<img src="<%= view.image_url %>" alt="">
+<h2 class="title"><%= view.title %></h2>
+<h3 class="author">Ready in min :<%= view.readyinminutes %></h3>
+
+<ol>
+    <% view.stepdetails.split('","').forEach(v=>{ %>
+        <li class="stepDetails"><%= v %></li>
+   <% }) %>
+
+   
+
+
+    </ol>
+<button class="select">Update Details</button>
+
+<form style="display: none;" class="hide-details" action="/favorite/<%=view.id%>?_method=PUT" method="POST">
+
+
+    <input name="title" type="text" value="<%= view.title %>" />
+    <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
+    <input name="image" type="text" value="<%= view.image_url %>" />
+  
+
+    <input name="stepdetails" type="text" value="<%= view.stepdetails %>" />
+
+    <div><button type="submit">Update Recipe</button></div>
+
+</form>
+
+
+<form action="/favorite/<%=view.id%>?_method=Delete" method="POST">
+    <div><button type="submit">Delete Recipe</button></div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('.select').on('click', function(){
+    $(this).next('form').removeAttr('style');
+  });
+
+</script>

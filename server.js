@@ -45,28 +45,76 @@ function searchForm(req, res) {
 app.post('/search_name', searchName);
 app.post('/details', details);
 app.post('/favorite', addToFavorite);
-// app.put('/recipe/update/:id', updateBookForm);
-// app.delete('/recipe/delete/:id', deleteBook);
+app.get('/favorite/:id', viewdetails);
+app.delete('/favorite/:id', deletebook);
+app.put('/favorite/:id', updatebook);
+app.use('*', errorFunction);
 
 
 
 
 
+function errorFunction(request, response) {
+    response.status(404).render('pages/recipes/error');
+  }
+  
 function addToFavorite(req, res) {
     let { image, title, readyInMinutes, summary, stepDetails } = req.body;
-    let SQL = 'INSERT INTO recipe (image_url, title, readyInMinutes, summary, stepDetails) VALUES ($1, $2, $3, $4, $5)';
+    let SQL = 'INSERT INTO recipe (image_url, title, readyInMinutes, summary, stepDetails) VALUES ($1, $2, $3, $4, $5) RETURNING id; ';
     let values = [image, title, readyInMinutes, summary, stepDetails];
-    console.log(values);
-    client.query(SQL, values).then(SQL = 'SELECT * FROM recipe;');
-    // values = [req.body.title];
-    return client.query(SQL)
-        .then(result => {
-            // console.log('wwwwwwwwww', result.rows[0]);
-            res.redirect(`/favorite/${result.rows[0]}`)
-        })
+console.log(values);
+    client.query(SQL, values).then(data => {
+
+      res.redirect(`/favorite/${data.rows[0].id}`)
+
+    }).catch(console.error);
 
 
 }
+
+
+
+
+
+function viewdetails(req, res) {
+    let SQL = 'SELECT * FROM recipe WHERE id=$1;';
+    let val = [req.params.id];
+    
+    client.query(SQL, val)
+        .then(result => {
+            console.log(result.rows[0])
+            res.render('pages/recipes/fav', { view: result.rows[0] });
+        }).catch(console.error);
+
+
+}
+
+
+
+function deletebook(req, res) {
+    let deletebook = req.body;
+    let SQL = `DELETE FROM recipe WHERE id=$1;`;
+    let val = [req.params.id];
+    
+    client.query(SQL, val).then(res.redirect('/index')).catch(console.error);
+    
+}
+
+
+
+
+function updatebook(req, res) {
+    
+    let updatedata= req.body;
+    let SQL = `UPDATE recipe SET title=$1,  image_url=$2, readyInMinutes=$3 ,summary=$4 ,stepDetails=$5 WHERE id=$6;`;
+    let values = [updatedata.title, updatedata.image,  updatedata.readyinminutes, updatedata.summary, updatedata.stepdetails , req.params.id.toString()];
+    console.log('here valu', values);
+    client.query(SQL, values)
+        .then(res.redirect(`/favorite/${req.params.id.toString()}`))
+}
+
+
+
 
 
 
