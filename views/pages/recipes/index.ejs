@@ -8,33 +8,38 @@
     <link rel="stylesheet" href="../public/css/index.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
 
 </head>
 
 <body>
+    <div class="ANM">
+        <div id="load"></div>
+    </div>
+
+
+
+
     <%- include('./header') %>
-    
+
+
     <header>
         <!-- <img class="headerImg" src="../../../public/images/img1.jpg" alt="" > -->
-        <video autoplay loop muted id="video" style="height:400px; width:100%;">
-            <source src="../../../public/images/background - 43653.mp4" type="video/mp4"> </video>
+        <!-- <video autoplay loop muted id="video" style="height:400px; width:100%;">
+            <source src="../../../public/images/background - 43653.mp4" type="video/mp4"> </video> -->
     </header>
 
-
-
-
     <!-- recipe 1 -->
-    <!-- Content Start - Just for visualization -->
     <div class="title">
-    <h1>This Week's Featured Recipes</h1>
-</div>
+        <h1>This Week's Featured Recipes</h1>
+    </div>
     <h1>Sweets</h1>
     <div id="content">
         <!-- Recipe Start -->
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/cake.jpg">
-        
+
                 <div class="name">
                     <a href="https://sallysbakingaddiction.com/vanilla-cake/">
                         <h3>white cake</h3>
@@ -52,7 +57,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/cookies.jpg">
-                
+
                 <div class="name">
                     <a href="https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/">
                         <h3>Cookies</h3>
@@ -71,7 +76,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/donuts.jpg">
-               
+
                 <div class="name">
                     <a href="https://www.delish.com/cooking/recipe-ideas/a24788319/how-to-make-donuts-at-home/">
                         <h3>Donuts</h3>
@@ -94,7 +99,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/frenchtoast.jpg">
-               
+
                 <div class="name">
                     <a href="https://www.mccormick.com/recipes/breakfast-brunch/quick-and-easy-french-toast">
                         <h3>French Toast</h3>
@@ -112,7 +117,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/flafel.jpg">
-               
+
                 <div class="name">
                     <a href="https://www.themediterraneandish.com/how-to-make-falafel/">
                         <h3>flafel</h3>
@@ -130,7 +135,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/salad.jpg">
-              
+
                 <div class="name">
                     <a href="https://www.loveandlemons.com/salad-recipes/">
                         <h3>Salad</h3>
@@ -154,7 +159,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/sushi.jpg">
-               
+
                 <div class="name">
                     <a href="https://www.fifteenspatulas.com/homemade-sushi/">
                         <h3>sushi</h3>
@@ -174,7 +179,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/maklobah.jpg">
-               
+
                 <div class="name">
                     <a href="https://www.legalnomads.com/maklouba/">
                         <h3>Maklobah</h3>
@@ -193,7 +198,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/dawali.jpg">
-                
+
                 <div class="name">
                     <a href="https://feelgoodfoodie.net/recipe/lebanese-stuffed-grape-leaves/">
                         <h3>Dwali</h3>
@@ -210,11 +215,25 @@
 
     </div>
 
-    
+
 
     <script src="../public/js/index.js"></script>
 
     <%- include('./footer') %>
+
+    <script>
+        document.onreadystatechange = function () {
+            var state = document.readyState
+            if (state == 'complete') {
+                setTimeout(function () {
+                    document.getElementById('interactive');
+                    document.getElementById('load').style.visibility = "hidden";
+                }, 1500);
+            }
+        }
+    </script>
+
+
 </body>
 
 </html>
