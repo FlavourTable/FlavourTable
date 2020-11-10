@@ -2,18 +2,12 @@
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css';
 @import 'https://fonts.googleapis.com/css?family=Raleway:100,600';
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300';
-html,
-body {
-  width: 100%;
-  height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+body{
+  font-family: 'Lora', serif;
 }
 
-body {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  color: #999;
-  background-color: #fff;
-}
 
 h1,
 h2,
@@ -21,10 +15,12 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 20px 0;
+  /* margin: 0 0 20px 0; */
+  margin: 80px;
+  
   text-transform: none;
-  color: rgb(73, 72, 72);
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgb(44, 43, 43);
+/* margin-top:50px; */
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1.5;
@@ -41,16 +37,19 @@ a:hover{
 }
 
 .gray {
-  color: #a5a5a5;
+  color: #3a3a3a;
 }
 
-.team{
+/* .team{
   margin:40px;
-}
+} */
 
 .team-member {
-  margin: 15px 0;
+  margin: 15px;
   padding: 0;
+  width: 80%;
+  /* height: 300px; */
+
 }
 
 .team-member figure {
@@ -58,10 +57,13 @@ a:hover{
   overflow: hidden;
   padding: 0;
   margin: 0;
+  border-radius:15px 50px 30px;
+  height: 300px;
+ 
 }
 
 .team-member figure img {
-  min-width: 100%;
+  width: 100%;
 }
 
 .team-member figcaption p {
@@ -113,7 +115,7 @@ a:hover{
 .team-member figure:hover figcaption {
   visibility: visible;
   color: #fff;
-  background: rgba(230, 78, 62, 0.9);
+  background: rgba(230, 163, 62, 0.9);
   /* Primary color, can be changed via colors.css */
   
   height: 100%;

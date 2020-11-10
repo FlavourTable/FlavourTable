@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+body{
+  font-family: 'Lora', serif;
+}
 .headerImg{
   width:100%;
   height: 600px;
@@ -6,13 +11,9 @@
   /* background-size: cover; */
   opacity: 1.0;
 }
- /* h1{ */
-   /* color: #777;
-   text-align: center;*/
-   /* font-size: 25px;  */
-   /* font-size: calc(20px + 18vh); */
+
    .title {
-    font-family: "Montserrat";
+    
     text-align: center;
     color: #FFF;
     display: flex;
@@ -25,7 +26,7 @@
   }
   
   h1  {
-    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-image: url(https://data.whicdn.com/images/207841832/original.gif);
     background-size: cover;
     color: transparent;
     -moz-background-clip: text;
@@ -41,19 +42,19 @@
   .white-mode {
     text-decoration: none;
     padding: 7px 10px;
-    background-color: #122;
+    background-color:  rgba(230, 163, 62, 0.9);
     border-radius: 3px;
     color: #FFF;
     transition: .35s ease-in-out;
     position: absolute;
     left: 15px;
     bottom: 15px;
-    font-family: "Montserrat";
+  
   }
   
   .white-mode:hover {
     background-color: #FFF;
-    color: #122;
+    color: rgba(230, 163, 62, 0.9);
   }
   
 
@@ -106,9 +107,9 @@ h3 {
   margin:0 10px 10px 0;
   -webkit-border-radius:0 0 7px 7px;
   border-radius:0 0 7px 7px;
-  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-  -moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 1px 1px 4px rgba(150, 143, 143, 0.3);
+  -moz-box-shadow: 1px 1px 4px rgba(121, 121, 121, 0.3);
+  box-shadow: 1px 1px 4px rgba(151, 143, 143, 0.3);
 }
 .image {
   height:250px;
@@ -125,37 +126,8 @@ h3 {
   -ms-transform: scale(1.2) rotate(-3deg); /* IE 9 */
   -webkit-transform: scale(1.2) rotate(-3deg); /* Safari and Chrome */
 }
-.fa-heart-o:hover {
-  animation-name: pulse; 
-  animation-duration: 0.5s; 
-  animation-iteration-count: infinite; 
-  -webkit-animation-name: pulse; 
-  -webkit-animation-duration: 0.5s; 
-  -webkit-animation-iteration-count: infinite; 
-}
-.likes {
-  width:45px;
-  height:35px;
-  background:#EC4678;
-  opacity: 0.85;
-  filter: alpha(opacity=85); 
-  zoom: 1; 
-  font-size:1em;
-  color:white;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 35px; 
-  position:absolute;
-  left:0;
-  top:20px;
-  -webkit-border-radius:0 5px 5px 0px;
-  border-radius:0 5px 5px 0px;
-  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  text-shadow: 1px 1px 2px rgba(214, 22, 80, 1);
-  border-left:5px dotted #D61650;
-}
+
+
 .name {
   width:100%;
   height:50px;
