@@ -19,6 +19,15 @@
      /* padding-left: 50%;  */
      text-align: center;
      box-shadow: 0 0 20px #cccccc;
+     position: fixed;
+     width: 100%;
+     z-index: 1;
+}
+#menu{
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  z-index: 20000;
 }
 
 #div_nav{
@@ -31,6 +40,8 @@
     font-size: 25px;
     width: 100%;
     box-shadow: 0 0 10px #cccccc;
+    position: fixed;
+    z-index: 30;
 }
 
  #side-nav{
@@ -38,6 +49,7 @@
     top: 17px;
     z-index: 5;
     left: 1%;
+    /* position: fixed; */
     
 } 
 
@@ -54,6 +66,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 10px;
+    position: fixed;
     
   }
   
