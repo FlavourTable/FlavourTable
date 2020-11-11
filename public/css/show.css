@@ -155,7 +155,9 @@ figcaption {
 width: 180px;
 height: 60px;
 background-color:white;
-color:rgb(0, 0, 0)
+color:rgb(0, 0, 0);
+overflow: hidden;
+border: currentColor;
 
 }
 
