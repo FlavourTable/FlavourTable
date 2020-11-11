@@ -10,8 +10,13 @@
     width: 86px;
     height: 85px;
     font-family: 'Lora', serif;
+}    
+.h4{
+        font-size: 25px;
+        color: white;
+      
+      }
     
-}
 .ingSelect{
     border-radius: 23em;
     padding: 2%;
@@ -43,12 +48,14 @@ height: 90px;
     height: 88px;
 }
 #type{
-    margin-bottom: 4%;
+    margin-bottom: 5%;
     border-radius: 23em;
-    padding: 2%;
+    padding: 1%;
+    margin-top: 4%;
+    width: 20%;
 }
 #buttons{
-    margin-top: -5%;
+    margin-top: 0%;
     width: 20%;
    height: 30%;
    margin-left: 5%;
@@ -74,22 +81,31 @@ color: white;
 .includeIngredients{
     border-radius: 23em;
      padding: 2%;
+     margin-bottom: 5%;
+    width: 67%;
 }
 
 #query{
-    margin-top: 2%;
+    margin-top: 4%;
+    margin-bottom: -2%;
     border-radius: 23em;
-     padding: 2%;
+    padding: 2%;
+    width: 68%;
 }
 
 #diet{
     border-radius: 2em;
+    margin: 4%;
+    width: 20%;
+    padding: 1%;
+    margin-top: -1%;
     
 }
 
 #cuisine{
     border-radius: 23em;
-    padding: 2%;
+    padding: 1%;
+    width: 20%;
 }
 
 
@@ -289,7 +305,7 @@ body{
     
     }
     #buttons{
-       margin-top: 0%;
+       margin-top: 14%;
         width: 50%;
        height: 30%;
        margin-left: 5%;
@@ -317,6 +333,7 @@ body{
     .includeIngredients{
         border-radius: 23em;
          padding: 2%;
+         margin-top: -1%;
     }
     
     #query{
@@ -332,7 +349,7 @@ body{
     
     #cuisine{
         border-radius: 23em;
-        padding: 2%;
+        padding: 1%;
     }
     
     

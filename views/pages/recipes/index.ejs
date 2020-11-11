@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flavor Table</title>
     <link rel="stylesheet" href="../../../public/css/index.css">
     <link rel="stylesheet" href="../../../public/css/base.css">
     <link rel="stylesheet" href="../../../public/css/layout.css">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../../public/css/loading.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
     <link rel="stylesheet" href="../../../public/css/slider.css">
+    <link rel="stylesheet" href="../../../public/css/footer.css">
 
 
 </head>
@@ -26,8 +27,10 @@
 
         <nav id="navBar">
 
-            <img class=".flavor" style="width: 237px; height: 80px; position: absolute; top: -2%; left: 42.5%;"
-                src="../../../public/images/FlavorX.png" alt="Flavor">
+
+
+            <img class=".flavor" src="../../../public/images/FlavorX.png"
+                style=" width: 240px; height: 70px; top:-2 %; left: 42.5%;" alt="Flavor">
         </nav>
 
         <div class="Xcontainer">
@@ -108,14 +111,21 @@
     <!-- recipe 1 -->
     <!-- Content Start - Just for visualization -->
     <div class="title">
-     
-        <h1>This Week's Featured Recipes</h1>
-          
+        
+        <h1 class="h1Section">This Week's Featured Recipes</h1>
+      
+
     </div>
-    <h1>Sweets</h1>
-    
+
     <div id="content">
+
+
+        <!-- first div -->
+    <div id="sweets"> 
+    <h1>Sweets</h1>
+
         <!-- Recipe Start -->
+        <div id="firsDiv">  
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/cake.jpg">
@@ -169,13 +179,18 @@
                 <li><i class="fa fa-cutlery"></i> 16 People</li>
             </ul>
         </div>
+    </div>
+    </div>
+
+
         <!-- Recipe End -->
 
 
 
-
+         <div id="breakfast"> 
         <h1>Breakfast</h1>
         <!-- Recipe Start -->
+        <div id="secondDiv">
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/frenchtoast.jpg">
@@ -229,12 +244,14 @@
             </ul>
         </div>
         <!-- Recipe End -->
+    </div>
+    </div>
 
 
-
-
+<div id="lunch">
         <h1>Lunch</h1>
 
+       <div id="thirdDiv">
         <!-- Recipe Start -->
         <div class="recipe">
             <div class="image">
@@ -292,15 +309,15 @@
             </ul>
         </div>
         <!-- Recipe End -->
-
     </div>
+    </div>
+</div>
+</div>
 
 
+<%- include('./footer') %>
 
-    <script src="../public/js/index.js"></script>
-
-    <%- include('./footer') %>
-
+<script src="../public/js/index.js"></script>
     <script>
         document.onreadystatechange = function () {
             var state = document.readyState
@@ -385,9 +402,12 @@
         if (auto) {
             slideInterval = setInterval(nextSlide, intervalTime);
         }
+
+
     </script>
 
     <script src="../../../public/js/app.js"></script>
+
 </body>
 
 </html>

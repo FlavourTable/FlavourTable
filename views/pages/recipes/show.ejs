@@ -18,7 +18,12 @@
         
     <link rel="stylesheet" href="../../../public/css/show.css">
 
+
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+
 </head>
+<div id="load"></div>
+ 
 
 <body>
     <header>
@@ -68,6 +73,7 @@
 
 
 
+
         <form class="hide-form" action="/favorite" method="post">
             <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
             <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>" style="display: none;" />
@@ -89,10 +95,6 @@
     </div>
  </div>
     
-
-
-        
-
 
 
 
@@ -199,8 +201,7 @@ $(".fa-heart").click(function() {
 
     </script>
         <script src="../../../public/js/app.js"></script>
-
-    
+    <script src="../../../public/js/loading.js"></script>
 </body>
 
 </html>
