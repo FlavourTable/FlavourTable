@@ -47,6 +47,7 @@
                                     width="30pxs" alt=""> <br>Cuisine</button>
                             <button class="type"> <img src="../../../public/images/spaguetti.png" height="30px"
                                     width="30pxs" alt=""> <br> Type</button>
+
                         </div>
                         <div class="box">
                             <span></span>
@@ -59,65 +60,67 @@
 
 
 
-                                <h4 class="h4">Search Here</h4>
+                                <div class="sANM">
+                                    <h4 class="h4">Search Here</h4>
 
-                                <form action="/search_name" method="POST" id="form1">
-                                    <input name="query" id="query" type="text"
-                                        placeholder="Enter Meal Name or Leave empty" style="display: none;">
-                                    <br>
-                                    <input name="page" id="page" type="text" value="1" style="display: none;">
-                                    <br>
-                                    <input name="includeIngredients" class="includeIngredients" type="text"
-                                        placeholder="Enter Included Ingredient" style="display: none;">
-                                    <br>
-                                    <input name="excludeIngredients" class="includeIngredients" type="text"
-                                        placeholder="Enter Excluded Ingredient" style="display: none;">
-                                    <br>
-                                    <select name="diet" id="diet" style="display: none;">
-                                        <optgroup>
-                                            <option value="none">None</option>
-                                            <option value="Gluten Free"> Gluten Free</option>
-                                            <option value="Ketogenic">Ketogenic</option>
-                                            <option value="Vegetarian">Vegetarian</option>
-                                            <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
-                                            <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-                                            <option value="Vegan">Vegan</option>
-                                            <option value="Pescetarian">Pescetarian</option>
-                                            <option value="Paleo">Paleo</option>
-                                            <option value="Primal">Primal</option>
-                                            <option value="Whole30">Whole30</option>
-                                        </optgroup>
-                                    </select>
-                                    <br>
-                                    <select name="cuisine" id="cuisine" style="display: none;">
-                                        <optgroup>
-                                            <option value="all">All</option>
-                                            <option value="American"> American</option>
-                                            <option value="Mexican">Mexican</option>
-                                            <option value="Middle-Eastern">Middle Eastern</option>
-                                            <option value="Italian">Italian</option>
-                                            <option value="Chinese">Chinese</option>
-                                            <option value="Indian">Indian</option>
-                                            <option value="Korean">Korean</option>
-                                        </optgroup>
-                                    </select>
-                                    <br>
-                                    <select name="type" id="type" style="display: none;">
-                                        <optgroup>
-                                            <option value="all">all</option>
-                                            <option value="drink">Drink</option>
-                                            <option value="snack">Snack</option>
-                                            <option value="main course">Main course</option>
-                                            <option value="dessert">Dessert</option>
-                                            <option value="breakfast">Breakfast</option>
-                                            <option value="soup">Soup</option>
-                                            <option value="sauce">Sauce</option>
-                                            <option value="side dish">Side dish</option>
+                                    <form action="/search_name" method="POST" id="form1">
+                                        <input name="query" id="query" type="text" placeholder="Enter Meal Name"
+                                            style="display: none;">
+                                        <br>
+                                        <input name="page" id="page" type="text" value="1" style="display: none;">
+                                        <br>
+                                        <input name="includeIngredients" class="includeIngredients" type="text"
+                                            placeholder="Enter Included Ingredient" style="display: none;">
+                                        <br>
+                                        <input name="excludeIngredients" class="includeIngredients" type="text"
+                                            placeholder="Enter Excluded Ingredient" style="display: none;">
+                                        <br>
+                                        <select name="diet" id="diet" style="display: none;">
+                                            <optgroup>
+                                                <option value="none">None</option>
+                                                <option value="Gluten Free"> Gluten Free</option>
+                                                <option value="Ketogenic">Ketogenic</option>
+                                                <option value="Vegetarian">Vegetarian</option>
+                                                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                                                <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                                                <option value="Vegan">Vegan</option>
+                                                <option value="Pescetarian">Pescetarian</option>
+                                                <option value="Paleo">Paleo</option>
+                                                <option value="Primal">Primal</option>
+                                                <option value="Whole30">Whole30</option>
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <select name="cuisine" id="cuisine" style="display: none;">
+                                            <optgroup>
+                                                <option value="all">All</option>
+                                                <option value="American"> American</option>
+                                                <option value="Mexican">Mexican</option>
+                                                <option value="Middle-Eastern">Middle Eastern</option>
+                                                <option value="Italian">Italian</option>
+                                                <option value="Chinese">Chinese</option>
+                                                <option value="Indian">Indian</option>
+                                                <option value="Korean">Korean</option>
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <select name="type" id="type" style="display: none;">
+                                            <optgroup>
+                                                <option value="all">all</option>
+                                                <option value="drink">Drink</option>
+                                                <option value="snack">Snack</option>
+                                                <option value="main course">Main course</option>
+                                                <option value="dessert">Dessert</option>
+                                                <option value="breakfast">Breakfast</option>
+                                                <option value="soup">Soup</option>
+                                                <option value="sauce">Sauce</option>
+                                                <option value="side dish">Side dish</option>
 
-                                        </optgroup>
-                                    </select>
-                                    <br>
-                                    <button type="submit" id="sub">Search</button>
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <button type="submit" id="sub">Search</button>
+                                </div>
                                 </form>
                             </div>
                         </div>
