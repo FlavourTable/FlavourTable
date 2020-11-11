@@ -41,7 +41,8 @@ app.get('/searches/new', searchForm);
 function searchForm(req, res) {
     res.render('pages/recipes/new');
 }
-
+app.get('/', homePage);
+app.get('/yourFavorite', favoritePage);
 app.post('/search_name', searchName);
 app.post('/details', details);
 app.post('/favorite', addToFavorite);
@@ -56,16 +57,16 @@ app.use('*', errorFunction);
 
 function errorFunction(request, response) {
     response.status(404).render('pages/recipes/error');
-  }
-  
+}
+
 function addToFavorite(req, res) {
     let { image, title, readyInMinutes, summary, stepDetails } = req.body;
     let SQL = 'INSERT INTO recipe (image_url, title, readyInMinutes, summary, stepDetails) VALUES ($1, $2, $3, $4, $5) RETURNING id; ';
     let values = [image, title, readyInMinutes, summary, stepDetails];
-console.log(values);
+    console.log(values);
     client.query(SQL, values).then(data => {
 
-      res.redirect(`/favorite/${data.rows[0].id}`)
+        res.redirect(`/favorite/${data.rows[0].id}`)
 
     }).catch(console.error);
 
@@ -73,13 +74,16 @@ console.log(values);
 }
 
 
+function homePage(request, response) {
+    response.status(200).render('pages/recipes/index');
+};
 
 
 
 function viewdetails(req, res) {
     let SQL = 'SELECT * FROM recipe WHERE id=$1;';
     let val = [req.params.id];
-    
+
     client.query(SQL, val)
         .then(result => {
             console.log(result.rows[0])
@@ -95,19 +99,19 @@ function deletebook(req, res) {
     let deletebook = req.body;
     let SQL = `DELETE FROM recipe WHERE id=$1;`;
     let val = [req.params.id];
-    
+
     client.query(SQL, val).then(res.redirect('/index')).catch(console.error);
-    
+
 }
 
 
 
 
 function updatebook(req, res) {
-    
-    let updatedata= req.body;
+
+    let updatedata = req.body;
     let SQL = `UPDATE recipe SET title=$1,  image_url=$2, readyInMinutes=$3 ,summary=$4 ,stepDetails=$5 WHERE id=$6;`;
-    let values = [updatedata.title, updatedata.image,  updatedata.readyinminutes, updatedata.summary, updatedata.stepdetails , req.params.id.toString()];
+    let values = [updatedata.title, updatedata.image, updatedata.readyinminutes, updatedata.summary, updatedata.stepdetails, req.params.id.toString()];
     console.log('here valu', values);
     client.query(SQL, values)
         .then(res.redirect(`/favorite/${req.params.id.toString()}`))
@@ -301,6 +305,7 @@ function searchName(req, res) {
         })
         .then(result => {
 
+
             res.render('pages/recipes/show', { recipeResults: result, nioh: nextPage, nioh2: previousPage, nioh3: CurrentPage });
         })
         .catch((err) => {
@@ -336,7 +341,14 @@ function Step(value) {
 };
 
 
-
+function favoritePage(request, response) {
+    const selectAll = 'SELECT * FROM recipe;';
+    client.query(selectAll).then(recipeData => {
+        let recipez = recipeData.rows.map((value) => value);
+        const responseObject = { favo: recipez };
+        response.status(200).render('pages/recipes/yourFavorite', responseObject);
+    });
+}
 
 
 

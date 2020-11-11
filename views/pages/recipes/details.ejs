@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ingredients Detalis</title>
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+    <link rel="stylesheet" href="../../../public/css/base.css">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
     <link rel="stylesheet" href="../../../public/css/details.css">
     <link rel="stylesheet" href="../../../public/css/modules.css">
 </head>
+<div id="load"></div>
 
-<body>  
-    <%- include('./header') %>
+<body>
+    <header>
+        <%- include('./header') %>
+    </header>
 
     <!-- <div class="wrapper wrapper--high">
         <div class="pie spinner-left"></div>
@@ -22,112 +28,115 @@
         <div class="content">!</div>
     </div> -->
 
-    <main style="display: none;">
+    <main style="margin-top: 80px;display: none;">
 
-        
-            <div id="saltShaker" style="background-image: url(../../../public/images/salt-shaker.png);"></div>
-            <div id="salt" style="background-image: url(../../../public/images/salt.png);"></div>
-            <div id="saltPile" style="background-image: url(../../../public/images/saltPile.png);"></div>
 
-            <div id="content">
-                <div id="firstSect">
+        <div id="saltShaker" style="background-image: url(../../../public/images/salt-shaker.png);"></div>
+        <div id="salt" style="background-image: url(../../../public/images/salt.png);"></div>
+        <div id="saltPile" style="background-image: url(../../../public/images/saltPile.png);"></div>
 
-                    <div id="skew"></div>
-                    <div id="skew2"></div>
+        <div id="content">
+            <div id="firstSect">
 
-                    <div>
-                        <h2><%=recipeResults[0].title%></h2>
-    
-                        <div style="display: flex;">
-                            
-                            
-                            <h3>Ready In Min:<%=recipeResults[0].readyInMinutes%> <br> Score: <%=recipeResults[0].spoonacularScore%></h3> <br>
+                <div id="skew"></div>
+                <div id="skew2"></div>
 
-                            
+                <div>
+                    <h2><%=recipeResults[0].title%></h2>
 
-                        </div>
-                        
-        
+                    <div style="display: flex;">
+
+
+                        <h3>Ready In Min:<%=recipeResults[0].readyInMinutes%> <br> Score:
+                            <%=recipeResults[0].spoonacularScore%></h3> <br>
+
+
+
                     </div>
 
 
-                    <img src="<%=recipeResults[0].image%>" alt="" class="preview-img">
-
-
-                </div>
-
-                <div id="firePlace">
-                    <div id="campfire">
-                        <div id="logs">
-                          <div></div>
-                          <div></div>
-                        </div>
-                        <div id="flames">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </div>
-                </div>
-                
-                <div id="summary">
-                    <h2 style="margin: 60px 0;">Summary</h2>
-                    <p><%- recipeResults[0].summary%></p>
-
                 </div>
 
 
-                <div id="ingr">
-                    <div id="skew3"></div>
+                <img src="<%=recipeResults[0].image%>" alt="" class="preview-img">
 
-                    <h2 style="text-align: center;margin: 60px 0">Required Ingredients</h2>
-                    <% recipeResults[2].forEach(recipe=>{ %>
-                        <div class="smolcont">
-                            <div class="smolim" style="width: 80px;height: 60px;background-image: url(<%=recipe.smallImage%>);background-position: center;background-repeat: no-repeat;background-size: contain;"></div>
-                            <!-- <img style="width: 80px;height: 60px;" src="<%=recipe.smallImage%>" alt="" class="smolim"> -->
-                            <p class="smolium line" onclick="myFunction()"><%= recipe.OriginalString%></p>
-                        </div>
 
+            </div>
+
+            <div id="firePlace">
+                <div id="campfire">
+                    <div id="logs">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div id="flames">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="summary">
+                <h2 style="margin: 60px 0;">Summary</h2>
+                <p><%- recipeResults[0].summary%></p>
+
+            </div>
+
+
+            <div id="ingr">
+                <div id="skew3"></div>
+
+                <h2 style="text-align: center;margin: 60px 0">Required Ingredients</h2>
+                <% recipeResults[2].forEach(recipe=>{ %>
+                <div class="smolcont">
+                    <div class="smolim"
+                        style="width: 80px;height: 60px;background-image: url(<%=recipe.smallImage%>);background-position: center;background-repeat: no-repeat;background-size: contain;">
+                    </div>
+                    <!-- <img style="width: 80px;height: 60px;" src="<%=recipe.smallImage%>" alt="" class="smolim"> -->
+                    <p class="smolium line" onclick="myFunction()"><%= recipe.OriginalString%></p>
+                </div>
+
+                <% }) %>
+            </div>
+
+            <div style="width: 70%; padding: 60px 0;margin: 150px auto 60px;">
+                <h2 style="text-align: center;">Preparing Steps</h2>
+                <div>
+
+                    <% recipeResults[1].forEach(recipe=>{ %>
+                    <% recipe.forEach(v=>{ %>
+                    <!-- <p class="step line"><%=v.stepNumber%>- <%= v.stepDetails%></p> <br> -->
+
+                    <div>
+                        <input type="checkbox" name="my-checkbox" id="<%=v.stepNumber%>">
+                        <label class="step line" for="<%=v.stepNumber%>"><%=v.stepNumber%>- <%= v.stepDetails%></label>
+                    </div>
+                    <br>
                     <% }) %>
-                </div>
-                
-                <div  style="width: 70%; padding: 60px 0;margin: 150px auto 60px;">
-                    <h2 style="text-align: center;">Preparing Steps</h2>
-                    <div>
-
-                        <% recipeResults[1].forEach(recipe=>{ %>
-                            <% recipe.forEach(v=>{ %>
-                                <!-- <p class="step line"><%=v.stepNumber%>- <%= v.stepDetails%></p> <br> -->
-
-                                <div>
-                                    <input type="checkbox" name="my-checkbox" id="<%=v.stepNumber%>">
-                                    <label class="step line" for="<%=v.stepNumber%>"><%=v.stepNumber%>- <%= v.stepDetails%></label>
-                                </div>
-                                <br>
-                            <% }) %>
-                        <% }) %>
+                    <% }) %>
 
 
-                        <button name="checkbox"  id="steev" onclick="uncheckAll()">Do It Again</button>
+                    <button name="checkbox" id="steev" onclick="uncheckAll()">Do It Again</button>
 
-                        
-                    </div>
-                    
-                </div>
-                
-                <div id="weee">
-                    <div id="wheatL"></div>
-                    <div id="wheatR"></div>
+
                 </div>
 
             </div>
-            
+
+            <div id="weee">
+                <div id="wheatL"></div>
+                <div id="wheatR"></div>
+            </div>
+
+        </div>
 
 
 
 
 
-        
+
+
     </main>
 
     <section class="recipe-overview">
@@ -175,39 +184,40 @@
         var wheatR = document.getElementById('wheatR');
 
         window.addEventListener('scroll', rolling);
-        function rolling(){
+        function rolling() {
             let pos = 243;
 
-            saltShaker.style.transform = 'rotate('+  (window.pageYOffset*-0.1)+'deg)';
+            saltShaker.style.transform = 'rotate(' + (window.pageYOffset * -0.1) + 'deg)';
 
-            wheatL.style.transform = 'rotate('+  (window.pageYOffset*-0.05)+'deg)';
-            wheatR.style.transform = 'rotate('+  (window.pageYOffset*0.05)+'deg)';
+            wheatL.style.transform = 'rotate(' + (window.pageYOffset * -0.05) + 'deg)';
+            wheatR.style.transform = 'rotate(' + (window.pageYOffset * 0.05) + 'deg)';
 
-            if (window.pageYOffset > 1580){
+            if (window.pageYOffset > 1580) {
 
                 var id = setInterval(frame, 10);
                 function frame() {
 
-                if (pos == 295) {
-                clearInterval(id);
-            } else {
-                pos++; 
-                salt.style.top = pos + '%'; 
+                    if (pos == 295) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        salt.style.top = pos + '%';
+                    }
                 }
             }
+
+
         }
- 
-
-        }
 
 
 
 
-        function uncheckAll(){
-        $('input[type="checkbox"]:checked').prop('checked',false);
+        function uncheckAll() {
+            $('input[type="checkbox"]:checked').prop('checked', false);
         }
 
     </script>
+
     <script>
         const carousel = (function() {
     const element = document.querySelector('.carousel');
@@ -302,7 +312,11 @@ document.querySelector('.carousel').addEventListener('click', function(e) {
     }
 });
 
-    </script>    
+    </script>
+    
+    
+    <script src="../../../public/js/loading.js"></script>
+    <script src="../../../public/js/app.js"></script>
 </body>
 
 </html>
