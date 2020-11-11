@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../public/css/details.css">
+    <link rel="stylesheet" href="../../../public/css/modules.css">
 </head>
 
 <body>  
@@ -24,13 +25,15 @@
     <main>
 
         
-
+            <div id="saltShaker" style="background-image: url(../../../public/images/salt-shaker.png);"></div>
+            <div id="salt" style="background-image: url(../../../public/images/salt.png);"></div>
+            <div id="saltPile" style="background-image: url(../../../public/images/saltPile.png);"></div>
 
             <div id="content">
                 <div id="firstSect">
 
                     <div id="skew"></div>
-
+                    <div id="skew2"></div>
 
                     <div>
                         <h2><%=recipeResults[0].title%></h2>
@@ -68,41 +71,107 @@
                 </div>
                 
                 <div id="summary">
-                    <h2>Summary</h2>
+                    <h2 style="margin: 60px 0;">Summary</h2>
                     <p><%- recipeResults[0].summary%></p>
 
                 </div>
 
 
                 <div id="ingr">
-                    <h2 style="text-align: center;margin-top: 0">Required Ingredients</h2>
+                    <div id="skew3"></div>
+
+                    <h2 style="text-align: center;margin: 60px 0">Required Ingredients</h2>
                     <% recipeResults[2].forEach(recipe=>{ %>
                         <div class="smolcont">
-                            <img style="width: 80px;height: 60px;" src="<%=recipe.smallImage%>" alt="" class="smolim">
-                            <p class="smolium"><%= recipe.OriginalString%></p>
+                            <div class="smolim" style="width: 80px;height: 60px;background-image: url(<%=recipe.smallImage%>);background-position: center;background-repeat: no-repeat;background-size: contain;"></div>
+                            <!-- <img style="width: 80px;height: 60px;" src="<%=recipe.smallImage%>" alt="" class="smolim"> -->
+                            <p class="smolium line" onclick="myFunction()"><%= recipe.OriginalString%></p>
                         </div>
 
                     <% }) %>
                 </div>
                 
-                <div  style="width: 70%; padding: 60px 0;">
+                <div  style="width: 70%; padding: 60px 0;margin: 150px auto 60px;">
                     <h2 style="text-align: center;">Preparing Steps</h2>
                     <div>
+
                         <% recipeResults[1].forEach(recipe=>{ %>
                             <% recipe.forEach(v=>{ %>
-                                <p class="step"><%=v.stepNumber%>- <%= v.stepDetails%></p> <br>
+                                <!-- <p class="step line"><%=v.stepNumber%>- <%= v.stepDetails%></p> <br> -->
+
+                                <div>
+                                    <input type="checkbox" name="my-checkbox" id="<%=v.stepNumber%>">
+                                    <label class="step line" for="<%=v.stepNumber%>"><%=v.stepNumber%>- <%= v.stepDetails%></label>
+                                </div>
+                                <br>
                             <% }) %>
                         <% }) %>
-    
+
+
+                        <button name="checkbox"  id="steev" onclick="uncheckAll()">Do It Again</button>
+
+                        
                     </div>
+                    
                 </div>
                 
+                <div id="weee">
+                    <div id="wheatL"></div>
+                    <div id="wheatR"></div>
+                </div>
 
             </div>
             
+
+
+
+
+
         
     </main>
     <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var saltShaker = document.getElementById('saltShaker');
+        var salt = document.getElementById('salt');
+
+        var wheatL = document.getElementById('wheatL');
+        var wheatR = document.getElementById('wheatR');
+
+        window.addEventListener('scroll', rolling);
+        function rolling(){
+            let pos = 243;
+
+            saltShaker.style.transform = 'rotate('+  (window.pageYOffset*-0.1)+'deg)';
+
+            wheatL.style.transform = 'rotate('+  (window.pageYOffset*-0.05)+'deg)';
+            wheatR.style.transform = 'rotate('+  (window.pageYOffset*0.05)+'deg)';
+
+            if (window.pageYOffset > 1580){
+
+                var id = setInterval(frame, 10);
+                function frame() {
+
+                if (pos == 295) {
+                clearInterval(id);
+            } else {
+                pos++; 
+                salt.style.top = pos + '%'; 
+                }
+            }
+        }
+ 
+
+        }
+
+
+
+
+        function uncheckAll(){
+        $('input[type="checkbox"]:checked').prop('checked',false);
+        }
+    </script>
     
 </body>
 
