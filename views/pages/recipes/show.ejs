@@ -1,65 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../../../public/css/loading.css">
     <link rel="stylesheet" href="../../../public/css/show.css">
 
 </head>
+<div id="load"></div>
+
 <body>
     <header>
-    <%- include('./header') %>
-</header>
+        <%- include('./header') %>
+    </header>
     <main>
-        
+
 
         <div id="card-container">
             <div class="cardrest transition">
-        <% recipeResults.forEach(recipe=>{ %>
-            <div class="card">
+                <% recipeResults.forEach(recipe=>{ %>
+                <div class="card">
 
-            <img src="<%=recipe[0].image%>" alt="">
+                    <img src="<%=recipe[0].image%>" alt="">
 
-            <div class="card-body">
+                    <div class="card-body">
 
 
-            <h3 class="card-body"><%=recipe[0].title%></h3>
-            <form action="/details" method="POST" style="width: 100%; height: 100%;">
-                <input name="titleMatch" id="query" type="text" value="<%=recipe[0].title%> " style="display: none;">
-                <button class="buttonstyle" type="submit">Submit</button>
-            </form>
+                        <h3 class="card-body"><%=recipe[0].title%></h3>
+                        <form action="/details" method="POST" style="width: 100%; height: 100%;">
+                            <input name="titleMatch" id="query" type="text" value="<%=recipe[0].title%> "
+                                style="display: none;">
+                            <button class="buttonstyle" type="submit">Submit</button>
+                        </form>
+                    </div>
+
+
+
+
+
+
+
+                    <form class="hide-form" action="/favorite" method="post">
+                        <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
+                        <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>"
+                            style="display: none;" />
+                        <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
+                        <input name="summary" type="text" value="<%= recipe[0].summary %>" style="display: none;" />
+                        <% recipe[1].forEach(v=>{ %>
+                        <% v.forEach(w=>{ %>
+                        <input name="stepDetails" type="text" value=" <%= w.stepDetails %>" style="display: none;" />
+                        <% }) %>
+                        <% }) %>
+                        <button class="buttonstyle" id="/favorite/<%=recipe[0].id%>" type="submit">Add To
+                            Favorite</button>
+                </div>
+                </form>
+                <% }) %>
+            </div>
+
+        </div>
+
         </div>
 
 
 
 
-
-
-
-        <form class="hide-form" action="/favorite" method="post">
-            <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
-            <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>" style="display: none;" />
-            <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
-            <input name="summary" type="text" value="<%= recipe[0].summary %>" style="display: none;" />
-            <% recipe[1].forEach(v=>{ %>
-                <% v.forEach(w=>{ %>
-            <input name="stepDetails" type="text" value=" <%= w.stepDetails %>" style="display: none;" />
-            <% }) %>
-            <% }) %>
-            <button class="buttonstyle" id="/favorite/<%=recipe[0].id%>" type="submit">Add To Favorite</button></div>
-        </form>
-         <% }) %>
-    </div>
-
-    </div>
-
-</div>
-
-
-
-       
         <p id="checknext"> </p>
         <form action="/search_name" method="POST">
             <input name="query" value="<%=nioh.searchVar%>" style="display: none;">
@@ -104,21 +111,7 @@
             console.log(document.getElementById('currPage').textContent);
         });
     </script>
+    <script src="../../../public/js/loading.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

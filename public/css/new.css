@@ -12,6 +12,12 @@
     font-family: 'Lora', serif;
     
 }
+
+.h4{
+  font-size: 25px;
+  color: white;
+
+}
 .ingSelect{
     border-radius: 23em;
     padding: 2%;
@@ -456,3 +462,4 @@ body{
    
   }
 }
+
