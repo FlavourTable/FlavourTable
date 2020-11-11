@@ -95,3 +95,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+.container {
+  animation: contact 2s;
+}
+
+@keyframes contact {
+  from {
+      opacity: 0;
+      transform: skew(350deg);
+  }
+  100% {
+      opacity: 5;
+      transform: rotateX(0);
+  }
+}

@@ -5,12 +5,27 @@
 
 .select{
     border-radius: 23em;
+    border: 1px solid black;
     padding: 2%;
     margin: 1%;
-    width: 86px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
     font-family: 'Lora', serif;
+    cursor: pointer;
+    transition: 400ms;
 }    
+.select:hover{
+  border-radius: 23em;
+  border: 1px solid black;
+  padding: 2%;
+  margin: 1%;
+  width: 95px;
+  height: 95px;
+  font-family: 'Lora', serif;
+  cursor: pointer;
+  transition: 400ms;
+  background-color: rgb(247, 236, 214);
+} 
 .h4{
         font-size: 25px;
         color: white;
@@ -22,37 +37,95 @@
     padding: 2%;
     margin: 1%;
     width: 90px;
-    height: 89px;
-   
+    height: 90px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 400ms;
+}
+.ingSelect:hover{
+  border-radius: 23em;
+  padding: 2%;
+  margin: 1%;
+  width: 95px;
+  height: 95px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 400ms;
+  background-color: rgb(247, 236, 214);
 }
 .dietSelect{
     border-radius: 23em;
     padding: 3%;
     margin: 1%;
-height: 90px;
+    height: 90px;
     width: 90px;
-    height: 88px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 400ms;
+}
+.dietSelect:hover{
+  border-radius: 23em;
+  padding: 3%;
+  margin: 1%;
+  height: 95px;
+  width: 95px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 400ms;
+  background-color: rgb(247, 236, 214);
 }
 .cuisineSelect{
     border-radius: 23em;
     padding: 2%;
     margin: 1%;
     width: 90px;
-    height: 88px;
+    height: 90px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 400ms;
+}
+.cuisineSelect:hover{
+  border-radius: 23em;
+  padding: 2%;
+  margin: 1%;
+  width: 95px;
+  height: 95px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 400ms;
+  background-color: rgb(247, 236, 214);
 }
 .type{
     border-radius: 23em;
     padding: 2%;
     margin: 1%;
     width: 90px;
-    height: 88px;
+    height: 90px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 400ms;
 }
+.type:hover{
+  border-radius: 23em;
+  padding: 2%;
+  margin: 1%;
+  width: 95px;
+  height: 95px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 400ms;
+  background-color: rgb(247, 236, 214);
+}
+
+
+
 #type{
     margin-bottom: 5%;
     border-radius: 23em;
     padding: 1%;
     margin-top: 4%;
     width: 20%;
+  
 }
 #buttons{
     margin-top: 0%;
@@ -64,6 +137,30 @@ display: flex;
 flex-direction: column;
 
    
+}
+
+
+#buttons {
+  animation: botoon 2s;
+  transition: 800ms;
+}
+
+@keyframes botoon {
+  from {
+    
+    opacity: 0;
+    transform: skewY(125deg);
+    
+}
+
+
+
+to {
+
+    opacity: 5;
+    transform: rotateX(10deg);
+
+}
 }
 
 #sub{
@@ -387,6 +484,8 @@ body{
          height:500px;
       }
      
+     
+
       
       .box{
         float: right;
