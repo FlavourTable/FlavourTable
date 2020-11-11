@@ -1,6 +1,4 @@
-/* body {
-    background-color: bisque;
-} */
+
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 
 .select{
@@ -204,17 +202,59 @@ color: white;
     padding: 1%;
     width: 20%;
 }
+#query{
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+.includeIngredients{
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+#cuisine , #diet, #type {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+  }
 
+  @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
 
-
+  
 *{
     margin:0;
     padding:0;
     font-family: 'Lora', serif;
-
-    
-
-  }
+}
   
   
   .container{  padding-top: 20px;
@@ -228,23 +268,17 @@ color: white;
     position: absolute;
     right: 0;
     box-shadow: 0 0 17px 4px black;
-    /* top: -25%;
-    right: -25%; */
-    border-radius: 0 0 0 100%;
+   border-radius: 0 0 0 100%;
   }
   
 body{
-    /* background-image: url("../images/tablaFormo.png"); */
-    /* background-repeat: no-repeat;
-    background-size: cover;*/
-    background-color: #e7e6e5;
+   
+  background-color: #e7e6e5;
  overflow: hidden; 
 }
   #general{
       margin-top: 10%;
-      /* margin-right: 40%;
-      margin-left: 10%; */
-      height:500px;
+     height:500px;
   }
  
   
@@ -253,7 +287,6 @@ body{
     position: absolute;
     top: 29%;
     left: 25%;
-    /* transform: translate(-50%, -50%); */
     width: 400px;
     height: 400px;
     background: linear-gradient(210deg, rgba(218,165,32,0.5) 0%, rgba(0,3,23,0.6) 56%, rgba(0,0,0,0.8) 100%);
@@ -291,7 +324,6 @@ body{
     left:15px;
     right:15px;
     bottom:15px;
-    /* border:1px solid #f0a591; */
     padding:20px;
     text-align:center;
     box-shadow: 0 5px 10px rgba(9,0,0,0.9);
@@ -306,8 +338,7 @@ body{
     height: 100%;
     display: block;
     box-sizing: border-box;
-    
-  }
+    }
   
   .box span:nth-child(1)
   {
@@ -331,8 +362,6 @@ body{
   
   .box span:before
   {
-    
-
     content: '';
     position: absolute;
     width:100%;
@@ -390,8 +419,8 @@ body{
         border-radius: 23em;
         padding: 3%;
         margin: 1%;
-    height: 90px;
-    width: 25%;
+        height: 90px;
+        width: 25%;
     
     }
     .cuisineSelect{
@@ -399,8 +428,7 @@ body{
         padding: 2%;
         margin: 1%;
         width: 25%;
-    
-    }
+     }
     #buttons{
        margin-top: 14%;
         width: 50%;
@@ -410,8 +438,7 @@ body{
        display: flex;
        flex-direction: row;
        width: 87%;
-       
-    }
+       }
     
     #sub{
         padding: 4%;
@@ -424,7 +451,6 @@ body{
         display: flex;
         width: 90%;
         flex-direction: column;
-    
     }
     
     .includeIngredients{
@@ -441,8 +467,7 @@ body{
     
     #diet{
         border-radius: 2em;
-        
-    }
+        }
     
     #cuisine{
         border-radius: 23em;
@@ -470,7 +495,6 @@ body{
         position: absolute;
         right: 0;
         box-shadow: 0 0 17px 4px black;
-        
         border-radius: 0 0 0 100%;
       }
       
@@ -479,14 +503,12 @@ body{
         background-color: #e7e6e5;
         overflow: hidden; 
       }
+
       #general{
           margin-top: 10%;
          height:500px;
       }
      
-     
-
-      
       .box{
         float: right;
         position: absolute;
@@ -571,4 +593,49 @@ body{
         }
    
   }
+  #query{
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+  }
+  .includeIngredients{
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+  }
+  #cuisine , #diet, #type {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
 }
