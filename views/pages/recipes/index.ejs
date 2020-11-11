@@ -5,35 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/css/index.css">
-
+    <link rel="stylesheet" href="../../../public/css/index.css">
+    <link rel="stylesheet" href="../../../public/css/base.css">
+    <link rel="stylesheet" href="../../../public/css/layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    <link rel="stylesheet" href="../../../public/css/slider.css">
+
 
 </head>
 
 <body>
-    <%- include('./header') %>
+    <div class="ANM">
+        <div id="load"></div>
+    </div>
+
+
     <header>
-        <!-- <img class="headerImg" src="../../../public/images/img1.jpg" alt="" > -->
-        <video autoplay loop muted id="video" style="height:400px; width:100%;">
-            <source src="../../../public/images/background - 43653.mp4" type="video/mp4"> </video>
+
+        <nav id="navBar">
+
+            <img class=".flavor" style="width: 237px; height: 80px; position: absolute; top: -2%; left: 42.5%;"
+                src="../../../public/images/FlavorX.png" alt="Flavor">
+        </nav>
+
+        <div class="Xcontainer">
+            <Section class="img-slider">
+                <div class="slider-container">
+                    <section id="slideshow">
+                        <div class="slider">
+                            <div class="slide current">
+                                <div class="content">
+                                    <h1>Spices</h1>
+                                    <p>Here are 5 of the world’s healthiest herbs and spices.</p>
+                                </div>
+                            </div>
+
+                            <div class="slide">
+                                <div class="content">
+                                    <h1>Cherry Tomato</h1>
+                                    <p>Food is... love. You cooking with love, good food. You make people happy. You
+                                        artiste!</p>
+                                </div>
+                            </div>
+
+                            <div class="slide">
+                                <div class="content">
+                                    <h1>Grains Group</h1>
+                                    <p>1 slice of bread, 1 cup of ready-to-eat cereal, or ½ cup of cooked rice, cooked
+                                        pasta, or cooked cereal can be considered as 1 ounce-equivalent from the Grains
+                                        Group</p>
+                                </div>
+                            </div>
+
+                            <div class="slide">
+                                <div class="content">
+                                    <h1>Baked Potato</h1>
+                                    <p>The best baked potato recipe, perfectly crispy and flavorful on the outside,
+                                        soft and fluffy on the inside, and so flavorful and delicious</p>
+                                </div>
+                            </div>
+
+                            <div class="slide">
+                                <div class="content">
+                                    <h1>Healthy Food</h1>
+                                    <p>When there was food it was very much a comfort for me, I'm definitely a food
+                                        addict.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
+                                checked>
+                            <!-- <label class="onoffswitch-label" for="myonoffswitch">Auto</label> -->
+                        </div>
+
+                        <div class="buttons">
+                            <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                            <button id="next"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </section>
+                </div>
+
+
+
+
+                <%- include('./header') %>
+
+
+
     </header>
+
+
+
+
 
 
 
 
     <!-- recipe 1 -->
     <!-- Content Start - Just for visualization -->
-    <h1>This Week's Featured Recipes</h1>
-    <h2>Sweets</h2>
+    <div class="title">
+        <h1>This Week's Featured Recipes</h1>
+    </div>
+    <h1>Sweets</h1>
     <div id="content">
         <!-- Recipe Start -->
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/cake.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv" data-test="pulse"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://sallysbakingaddiction.com/vanilla-cake/">
                         <h3>white cake</h3>
@@ -51,9 +134,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/cookies.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/">
                         <h3>Cookies</h3>
@@ -72,9 +153,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/donuts.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.delish.com/cooking/recipe-ideas/a24788319/how-to-make-donuts-at-home/">
                         <h3>Donuts</h3>
@@ -92,14 +171,12 @@
 
 
 
-        <h2>Breakfast</h2>
+        <h1>Breakfast</h1>
         <!-- Recipe Start -->
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/frenchtoast.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.mccormick.com/recipes/breakfast-brunch/quick-and-easy-french-toast">
                         <h3>French Toast</h3>
@@ -117,9 +194,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/flafel.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.themediterraneandish.com/how-to-make-falafel/">
                         <h3>flafel</h3>
@@ -137,9 +212,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/salad.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.loveandlemons.com/salad-recipes/">
                         <h3>Salad</h3>
@@ -157,15 +230,13 @@
 
 
 
-        <h2>Lunch</h2>
+        <h1>Lunch</h1>
 
         <!-- Recipe Start -->
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/sushi.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.fifteenspatulas.com/homemade-sushi/">
                         <h3>sushi</h3>
@@ -185,9 +256,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/maklobah.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://www.legalnomads.com/maklouba/">
                         <h3>Maklobah</h3>
@@ -206,9 +275,7 @@
         <div class="recipe">
             <div class="image">
                 <img src="../../../public/images/dawali.jpg">
-                <div class="likes">
-                    <i class="fa fa-heart-o lv"></i>
-                </div>
+
                 <div class="name">
                     <a href="https://feelgoodfoodie.net/recipe/lebanese-stuffed-grape-leaves/">
                         <h3>Dwali</h3>
@@ -225,13 +292,99 @@
 
     </div>
 
-    <footer>
 
-        </div>
-    </footer>
-    <!-- Content End -->
 
     <script src="../public/js/index.js"></script>
+
+    <%- include('./footer') %>
+
+    <script>
+        document.onreadystatechange = function () {
+            var state = document.readyState
+            if (state == 'complete') {
+                setTimeout(function () {
+                    document.getElementById('interactive');
+                    document.getElementById('load').style.visibility = "hidden";
+                }, 1500);
+            }
+        }
+    </script>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const next = document.querySelector('#next');
+        const prev = document.querySelector('#prev');
+        const toggle = document.querySelector('#myonoffswitch');
+        let auto = true; // Auto scroll
+        const intervalTime = 7000;
+        let slideInterval;
+
+        const nextSlide = () => {
+            // Get current class
+            const current = document.querySelector('.current');
+            // Remove current class
+            current.classList.remove('current');
+            // Check for next slide
+            if (current.nextElementSibling) {
+                // Add current to next sibiling
+                current.nextElementSibling.classList.add('current');
+            }
+            else {
+                // Add current to start
+                slides[0].classList.add('current');
+            }
+            setTimeout(() => current.classList.remove('current'));
+        }
+
+        const prevSlide = () => {
+            // Get current class
+            const current = document.querySelector('.current');
+            // Remove current class
+            current.classList.remove('current');
+            // Check for next slide
+            if (current.previousElementSibling) {
+                // Add current to prev sibiling
+                current.previousElementSibling.classList.add('current');
+            }
+            else {
+                // Add current to last
+                slides[slides.length - 1].classList.add('current');
+            }
+            setTimeout(() => current.classList.remove('current'));
+        }
+
+        // Button events
+        next.addEventListener('click', e => {
+            nextSlide();
+            if (auto) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
+        })
+        prev.addEventListener('click', e => {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, intervalTime);
+        })
+
+        // Auto slide toggle
+        toggle.addEventListener('click', e => {
+            if (toggle.checked) {
+                auto = true;
+                slideInterval = setInterval(nextSlide, intervalTime);
+            } else {
+                auto = false;
+                clearInterval(slideInterval);
+            }
+        })
+
+        // Auto slide
+        if (auto) {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+    </script>
+
+    <script src="../../../public/js/app.js"></script>
 </body>
 
 </html>
