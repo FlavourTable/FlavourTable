@@ -42,6 +42,7 @@ function searchForm(req, res) {
     res.render('pages/recipes/new');
 }
 app.get('/', homePage);
+app.get('/yourFavorite', favoritePage);
 app.post('/search_name', searchName);
 app.post('/details', details);
 app.post('/favorite', addToFavorite);
@@ -340,14 +341,14 @@ function Step(value) {
 };
 
 
-// function favoritePage(request, response) {
-//     const selectAll = 'SELECT * FROM books;';
-//     client.query(selectAll).then(bookData => {
-//       let books = bookData.rows.map((value) => value);
-//       const responseObject = { books: books };
-//       response.status(200).render('./pages/index', responseObject);
-//     });
-//   }
+function favoritePage(request, response) {
+    const selectAll = 'SELECT * FROM recipe;';
+    client.query(selectAll).then(recipeData => {
+        let recipez = recipeData.rows.map((value) => value);
+        const responseObject = { favo: recipez };
+        response.status(200).render('pages/recipes/yourFavorite', responseObject);
+    });
+}
 
 
 
