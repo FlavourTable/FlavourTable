@@ -1,15 +1,4 @@
-/* @media (max-width: 480px{
-   
-    body{
-        /* width: 480; */
-/*         
-        margin: 0 auto;
-        
-    }
-  } */ 
 
-
-/**/
   #navBar{ 
     height: 80px;
     background-color: rgb(43, 41, 41);
@@ -28,7 +17,6 @@
   left: 3px;
   z-index: 20000;
 }
-
 
 
 
