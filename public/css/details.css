@@ -32,33 +32,47 @@ h3{
 }
 
 #firstSect{
-    margin: 0 auto;
-    width: 80%;
-    margin: 0;
-    padding: 0 0 50px 0;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    justify-content: space-around;
-    background: linear-gradient(210deg, rgba(0,232,23,0.5) 0%, rgba(0,3,23,0.8) 56%, rgba(0,3,23,1) 100%);
+  width: 100%;
+  margin: 0;
+  padding: 0 0 50px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: space-around;
+  background: linear-gradient(210deg, rgba(218,165,32,0.5) 0%, rgba(0,3,23,0.8) 56%, rgba(0,0,0,1) 100%);
     
 }
 #skew{
-    content: "";
-    background: #fff;
-    margin: 0 !important;
-    padding: 0;
-    position: absolute;
-    width: 65%;
-    height: 250px;
-    top: 70px;
-    left: 10%;
-    border-radius: 0 0 100% 0;
+  content: "";
+  background: #fff;
+  margin: 0 !important;
+  padding: 0;
+  position: absolute;
+  z-index: 4 !important;
+  width: 65%;
+  height: 250px;
+  top: 70px;
+  left: 0;
+  border-radius: 0 0 100% 0;
+}
+
+#skew2{
+  content: "";
+  background: linear-gradient(210deg, rgba(218,165,32,0.5) 0%, rgba(0,3,23,0.8) 56%, rgba(0,0,0,1) 100%);
+  margin: 0 !important;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  height: 350px;
+  top: 70px;
+  left: 0;
+  z-index: 3 !important;
+  border-radius: 0 0 100% 0;
 }
 
 #firstSect>* {
-    margin-top: 20px;
-    z-index: 1;
+  margin-top: 20px;
+  z-index: 5;
 }
 
 
@@ -94,7 +108,7 @@ h3{
   }
   #firePlace #campfire {
     position: absolute;
-    z-index: 2;
+    z-index: 5;
     margin: -25px auto 0 auto;
     width: 90px;
     height: 100px;
@@ -103,7 +117,7 @@ h3{
     transform: translate(0, 20px);
     top: 385px;
     left: 46.3%;
-    box-shadow: 0px 0px 0px 11px #e7e6e5;
+    box-shadow: 0px 0px 0px 11px #e7e6e5
   }
   #firePlace #campfire #flames div {
     position: absolute;
@@ -449,28 +463,70 @@ h3{
     display: flex;
     justify-content: center;
 }
+
+
 #summary{
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    width: 70%;
-    text-align: center;
-    margin: 60px auto;
-    font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 60px 0;
+  font-size: 25px;
+  z-index: 1;
 }
+
+#summary::before{
+
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 390px;
+  background-color: #e7e6e5;
+  z-index: -1;
+  -moz-transform: skew(0deg, -5deg);
+  -webkit-transform: skew(0deg, -5deg);
+  -o-transform: skew(0deg, -5deg);
+  -ms-transform: skew(0deg, -5deg);
+  transform: skew(0deg, -4deg);
+
+}
+
+
 a{
     text-decoration: none;
 
 }
 #ingr{
-    width: 75%;
-    border: 1px solid black;
-    background: rgb(30, 30, 30);
-    color: #fff;
-    padding: 20px 0;
+  position: relative;
+  width: 100%;
+  /* height: 1000px; */
+  /* border: 1px solid black; */
+  /* background: rgb(30, 30, 30); */
+  color: #fff;
+  padding: 20px 0;
+  z-index: 5;
+  margin: 60px 0;
+}
+#skew3{
+  content: "";
+  position: absolute;
+  height: 120%;
+  top: -5%;
+  width: 100%;
+  left: 0;
+  background-color: rgb(30, 30, 30);
+  z-index: -1;
+  -moz-transform: skew(0deg, -5deg);
+  -webkit-transform: skew(0deg, -5deg);
+  -o-transform: skew(0deg, -5deg);
+  -ms-transform: skew(0deg, -5deg);
+  transform: skew(0deg, -4deg);
+
 }
 .smolcont{
     display: flex;
@@ -480,6 +536,7 @@ a{
     margin: 0 auto;
     padding: 10px 0;
 
+
 }
 .smolcont img{
     background: #fff;
@@ -487,7 +544,10 @@ a{
 
 }
 .smolim{
+  background: #fff;
     border: 1px black solid;
+    box-shadow: inset 0 0 11px 0px black;
+
 }
 .smolium{
     font-size: 20px;
@@ -500,3 +560,5 @@ a{
     margin: 0;
     width: 90%;
 }
+
+

@@ -1,0 +1,78 @@
+#saltShaker{
+    background-image: url(../../../public/images/salt-shaker.png);
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 300px;
+    position: absolute;
+    z-index: 1000000000;
+    top: 200%;
+    right: -2%;
+}
+
+#saltPile{
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    position: absolute;
+    z-index: 1000000000;
+    top: 295%;
+    right: 1%;
+}
+
+#salt{
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    position: absolute;
+    z-index: 1000000000;
+    top: 295%;
+    right: 1%;
+}
+
+input:checked + label {
+    text-decoration: line-through;
+}
+
+#steev{
+    display: flex;
+    align-self: center;
+    height: 50px;
+    width: 15%;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    text-decoration: none;
+    background-color: rgba(218,165,32,0.5);
+    color: #fff;
+    margin: auto;
+}
+
+#weee{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 60px;
+    padding: 50px;
+    overflow: hidden;
+}
+#wheatL{
+    background-image: url(../../public/images/wheatL.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 200px;
+}
+#wheatR{
+    background-image: url(../../public/images/wheatR.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 200px;
+}
