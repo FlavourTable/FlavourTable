@@ -16,14 +16,14 @@ h4,
 h5,
 h6 {
   /* margin: 0 0 20px 0; */
-  margin: 60px;
-  margin-top:100px ;
+  margin: 40px;
+  margin-top:80px ;
   text-transform: none;
   color: rgb(44, 43, 43);
 /* margin-top:50px; */
   font-weight: 600;
-  letter-spacing: 1px;
-  line-height: 1.5;
+  /* letter-spacing: 1px; */
+  /* line-height: 1.5; */
 }
 p{
   font-size: 20px;
@@ -113,6 +113,7 @@ a:hover{
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  z-index: 0;
 }
 
 .team-member figure:hover figcaption {
@@ -126,10 +127,12 @@ a:hover{
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .team-member figure:hover figcaption ul li a:hover {
   color: rgba(49, 49, 49, .97);
+  z-index: 1;
 }
 
 .team-member figure img {
@@ -142,6 +145,7 @@ a:hover{
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+  z-index: 1;
 }
 
 .team-member figure:hover img {
@@ -154,5 +158,6 @@ a:hover{
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+  z-index: 1;
 }
 
