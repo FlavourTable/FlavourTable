@@ -1,13 +1,24 @@
-.footer {
+.footer  {
     clear: both;
     padding: 25px 10px;
     background: rgb(43, 41, 41);
     color: #fff;
     text-align: center;
-    font-size: 14px;
+    
     border-top: solid 15px #9d9fa1;
+}
+.footer a{
+    font-size: 14px !important;
+}
+.footer p{
+    font-size: 14px !important;
 }
 
 a:link, a:visited {
     color: #8d8989;
+   
+}
+
+.icons{
+    font-size: 25px;
 }
