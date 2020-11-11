@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Favorites</title>
+</head>
+
+<body>
+    <header>
+        <%- include('./header') %>
+    </header>
+
+    <main>
+        <h1><b><%= favo.length %></b> Saved Recipes</h1>
+        <section>
+            <% favo.forEach((recipe) => { %>
+            <article class='recipe-results'>
+                <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
+                <h2><%=recipe.title%></h2><br>
+                <h3>Ready In Min:<%=recipe.readyinminutes%></h3> <br>
+                <a href="/favorite/<%= recipe.id %>"><button class='button'>View Recipe Details</button></a>
+            </article>
+            <% }); %>
+        </section>
+    </main>
+    <footer>
+        <%- include('./footer') %>
+    </footer>
+</body>
+
+</html>
