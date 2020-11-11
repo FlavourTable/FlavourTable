@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../../public/css/loading.css">
 
 </head>
-<div id="load"></div>
+<!-- <div id="load"></div> -->
  
 
 <body>
@@ -60,7 +60,23 @@
         
     
     <div class="heart-wrapper">
-        <button class="far fa-heart" id="/favorite/<%=recipe[0].id%>" type="submit"></button>
+      
+      <form class="hide-form" action="/favorite" method="post">
+        <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
+        <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>" style="display: none;" />
+        <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
+        <input name="summary" type="text" value="<%= recipe[0].summary %>" style="display: none;" />
+        <% recipe[1].forEach(v=>{ %>
+        <% v.forEach(w=>{ %>
+        <input name="stepDetails" type="text" value=" <%= w.stepDetails %>" style="display: none;" />
+        <% }) %>
+        <% }) %>
+         
+        
+<button class="far fa-heart" id="/favorite/<%=recipe[0].id%>" type="submit"></button>
+       
+    </form>
+        
             
 
        </div>
@@ -74,23 +90,6 @@
 
 
 
-        <form class="hide-form" action="/favorite" method="post">
-            <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
-            <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>" style="display: none;" />
-            <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
-            <input name="summary" type="text" value="<%= recipe[0].summary %>" style="display: none;" />
-            <% recipe[1].forEach(v=>{ %>
-            <% v.forEach(w=>{ %>
-            <input name="stepDetails" type="text" value=" <%= w.stepDetails %>" style="display: none;" />
-            <% }) %>
-            <% }) %>
-             
-            <!-- <div class="heart-wrapper"> -->
-            <!-- <button class="far fa-heart" id="/favorite/<%=recipe[0].id%>" type="submit"></button> -->
-                
-
-           <!-- </div> -->
-        </form>
         <% }) %>
     </div>
  </div>
