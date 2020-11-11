@@ -28,7 +28,7 @@
         <div class="content">!</div>
     </div> -->
 
-    <main style="margin-top: 80px;display: none;">
+    <main style="margin-top: 80px;" id="main1">
 
 
         <div id="saltShaker" style="background-image: url(../../../public/images/salt-shaker.png);"></div>
@@ -116,9 +116,7 @@
                     <% }) %>
                     <% }) %>
 
-
                     <button name="checkbox" id="steev" onclick="uncheckAll()">Do It Again</button>
-
 
                 </div>
 
@@ -131,49 +129,62 @@
 
         </div>
 
-
-
-
-
-
-
     </main>
 
-    <section class="recipe-overview">
-        <section class="carousel">
-            <img class="carousel__image carousel__image--current" src="http://cdn.arnellebalane.com/images/yummy-food-app/01.jpg" alt="Carousel Image">
+    <div id="main2">
+        <section class="recipe-overview">
+            <section class="carousel">
+                <img class="carousel__image carousel__image--current" src="<%=recipeResults[0].image%>" alt="Carousel Image">
+            </section>
+    
+            <header class="recipe">
+                <h1 class="recipe__title"><%=recipeResults[0].title%></h1>
+                <span class="recipe__info">4 Servings</span>
+                <span class="recipe__info"><%=recipeResults[0].readyInMinutes%>min</span>
+                <p class="recipe__description"><%- recipeResults[0].summary%></p>
+            </header>
         </section>
-
-        <header class="recipe">
-            <h1 class="recipe__title">Drinks in the sun</h1>
-            <span class="recipe__info">4 Servings</span>
-            <span class="recipe__info">10m</span>
-            <p class="recipe__description">Hot days for frosty sips! Try this refreshing drink that will impress all your friends.</p>
-        </header>
-    </section>
-
-    <div class="recipe-details-wrapper">
-        <section class="recipe-details">
-            <svg class="recipe__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M15.5,21L14,8H16.23L15.1,3.46L16.84,3L18.09,8H22L20.5,21H15.5M5,11H10A3,3 0 0,1 13,14H2A3,3 0 0,1 5,11M13,18A3,3 0 0,1 10,21H5A3,3 0 0,1 2,18H13M3,15H8L9.5,16.5L11,15H12A1,1 0 0,1 13,16A1,1 0 0,1 12,17H3A1,1 0 0,1 2,16A1,1 0 0,1 3,15Z" />
-            </svg>
-
-            <h2 class="ingredients-title">Ingredients</h2>
-            <ul class="ingredients">
-                <li class="ingredient">2 cups rose, divided</li>
-                <li class="ingredient">11/4 cups sugar</li>
-                <li class="ingredient">3 cups frozen raspberries</li>
-            </ul>
-        </section>
-        <button class="like-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z">
-            </svg>
-        </button>
+    
+        <div class="recipe-details-wrapper">
+            <section class="recipe-details">
+                <svg class="recipe__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.5,21L14,8H16.23L15.1,3.46L16.84,3L18.09,8H22L20.5,21H15.5M5,11H10A3,3 0 0,1 13,14H2A3,3 0 0,1 5,11M13,18A3,3 0 0,1 10,21H5A3,3 0 0,1 2,18H13M3,15H8L9.5,16.5L11,15H12A1,1 0 0,1 13,16A1,1 0 0,1 12,17H3A1,1 0 0,1 2,16A1,1 0 0,1 3,15Z" />
+                </svg>
+    
+                <h2 class="ingredients-title">Ingredients</h2>
+                <ul class="ingredients">
+                    <% recipeResults[2].forEach(recipe=>{ %> 
+                        <li class="ingredient"><%= recipe.OriginalString%></li>
+                    <% }) %>
+                </ul>
+                <br>
+                <br>
+                <div style="position: relative;">
+                    <img id="icon" src="https://img.icons8.com/ios-filled/50/000000/open-book.png"/>
+                    <h2 class="ingredients-title">Steps</h2>
+                    <ul class="ingredients">
+                        <% recipeResults[1].forEach(recipe=>{ %>
+                            <% recipe.forEach(v=>{ %> 
+                                <li class="ingredient"><%=v.stepNumber%>- <%= v.stepDetails%></li>
+                            <% }) %>
+                        <% }) %>
+                    </ul>
+                </div>
+  
+    
+            </section>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z">
+                </svg>
+            </button>
+        </div>
     </div>
 
 
-    <footer></footer>
+
+    <%- include('./footer') %>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
@@ -217,104 +228,7 @@
         }
 
     </script>
-
-    <script>
-        const carousel = (function() {
-    const element = document.querySelector('.carousel');
-    const items = Array.from(element.querySelectorAll('.carousel__image'));
-    const itemWidth = 200;
-    const currentItemClass = 'carousel__image--current';
-    let index = 0;
-
-    function render(index) {
-        items.forEach((item, i) => {
-            const transforms = [`translateX(-${itemWidth * index}px)`];
-            if (item.classList.contains(currentItemClass)) {
-                item.classList.remove(currentItemClass);
-            }
-            if (index === i) {
-                item.classList.add(currentItemClass);
-            } else {
-                transforms.push('scale(0.8)');
-            }
-            item.style.transform = transforms.join(' ');
-        });
-    }
-
-    function previous() {
-        if (index > 0) {
-            render(--index);
-        }
-        return index;
-    }
-
-    function next() {
-        if (index < items.length - 1) {
-            render(++index);
-        }
-        return index;
-    }
-
-    return { render, previous, next };
-})();
-
-
-const data = [{
-    color: '#faaaa1',
-    name: 'Drinks in the sun',
-    description: 'Hot days for frosty sips! Try this refreshing drink that will impress all your friends.'
-}, {
-    color: '#f8cf8b',
-    name: 'Fresh Veggies',
-    description: 'Crunchy and savory, best served with a glass of something cold in good company'
-}, {
-    color: '#bbd686',
-    name: 'Drinks in the sun',
-    description: 'Hot days for frosty sips! Try this refreshing drink that will impress all your friends.'
-}, {
-    color: '#788585',
-    name: 'Fresh Veggies',
-    description: 'Crunchy and savory, best served with a glass of something cold in good company'
-}, {
-    color: '#508aa8',
-    name: 'Drinks in the sun',
-    description: 'Hot days for frosty sips! Try this refreshing drink that will impress all your friends.'
-}, {
-    color: '#f8cf8b',
-    name: 'Fresh Veggies',
-    description: 'Crunchy and savory, best served with a glass of something cold in good company'
-}, {
-    color: '#faaaa1',
-    name: 'Drinks in the sun',
-    description: 'Hot days for frosty sips! Try this refreshing drink that will impress all your friends.'
-}];
-
-
-
-document.querySelector('.carousel').addEventListener('click', function(e) {
-    const target = e.target;
-    const currentClass = 'carousel__image--current';
-    if (target.classList.contains('carousel__image')
-    && !target.classList.contains(currentClass)) {
-        const previous = target.previousElementSibling;
-        const next = target.nextElementSibling;
-        if (previous && previous.classList.contains(currentClass)) {
-            var index = carousel.next();
-        } else if (next && next.classList.contains(currentClass)) {
-            var index = carousel.previous();
-        }
-
-        const item = data[index];
-        document.querySelector('.screen').style.setProperty('--primary-color', item.color);
-
-        document.querySelector('.recipe__title').textContent = item.name;
-        document.querySelector('.recipe__description').textContent = item.description;
-    }
-});
-
-    </script>
-    
-    
+  
     <script src="../../../public/js/loading.js"></script>
     <script src="../../../public/js/app.js"></script>
 </body>

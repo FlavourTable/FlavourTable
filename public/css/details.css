@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
 
-@media only screen and (min-width: 661px ) {
+@media only screen and (min-width: 481px ) {
   html,body{
     margin: 0;
     padding: 0;
@@ -55,7 +55,7 @@ h3{
   margin: 0 !important;
   padding: 0;
   position: absolute;
-  z-index: 4 !important;
+  z-index: 3 !important;
   width: 65%;
   height: 250px;
   top: 70px;
@@ -73,13 +73,13 @@ h3{
   height: 350px;
   top: 70px;
   left: 0;
-  z-index: 3 !important;
+  z-index: 2 !important;
   border-radius: 0 0 100% 0;
 }
 
 #firstSect>* {
   margin-top: 20px;
-  z-index: 5;
+  z-index: 4;
 }
 
 
@@ -115,7 +115,7 @@ h3{
   }
   #firePlace #campfire {
     position: absolute;
-    z-index: 5;
+    z-index: 4;
     margin: -25px auto 0 auto;
     width: 90px;
     height: 100px;
@@ -571,7 +571,7 @@ a{
 }
 
 
-@media only screen and (max-width: 660px ) {
+@media only screen and (max-width: 480px ) {
 
   *,
   *::before,
@@ -594,8 +594,7 @@ a{
       font-size: 12px;
       font-weight: 300;
       color: #222;
-      background-image: linear-gradient(-10deg, #a5c0e8 35%, #9cbae6 35%);
-  }
+      background-image: linear-gradient(-10deg, #e3e5e6 35%, #d5d6d7 35%);  }
   
   
   
@@ -606,7 +605,6 @@ a{
   /** Blocks **/
   
   .recipe-overview {
-      flex-shrink: 0;
       padding-bottom: 80px;
       position: relative;
       z-index: 1;
@@ -647,17 +645,21 @@ a{
   
   .carousel {
       display: flex;
-      padding: 20px calc((100% - 200px) / 2);
+      padding: 20px calc((77% - 200px) / 2);
       overflow: hidden;
+      margin-top: 50px;
+
   }
   
   
   .carousel__image {
-      width: 200px;
-      height: 270px;
+    width: 320px;
+    height: 240px;
       border-radius: 3px;
       cursor: pointer;
       transition: transform 200ms ease;
+      margin-top: 30px;
+
   }
   
   .carousel__image:not(.carousel__image--current) {
@@ -770,3 +772,29 @@ a{
   }
   
 }
+
+
+@media only screen and (min-width: 480px )  {
+
+
+  #main1{
+    display: block;
+  }
+  #main2{
+    display: none;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 480px )  {
+  
+  
+    #main1{
+      display: none;
+    }
+  
+    #main2{
+      display: block;
+    }
+    
+  }
