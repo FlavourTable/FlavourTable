@@ -1,4 +1,6 @@
-
+a{
+  text-decoration: none;
+}
   #navBar{ 
     height: 80px;
     background-color: rgb(43, 41, 41);
@@ -11,6 +13,9 @@
      width: 100%;
      top: 0;
      z-index: 5;
+     top: 0;
+     left: 0;
+
 }
 #menu{
   position: fixed;
@@ -45,19 +50,20 @@
 } 
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    z-index: 1000;
-    position: fixed;
-    z-index: 1;
-    margin-top: 3.5%;
-    right: 0;
-    left: 0%;
-    background-color: rgb(41, 40, 40);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 10px;
-    position: fixed;
+  height: 100%;
+  width: 0;
+  z-index: 1000;
+  position: fixed;
+  z-index: 1;
+  margin-top: 70px;
+  right: 0;
+  top: 0;
+  left: 0%;
+  background-color: rgb(41, 40, 40);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+  position: fixed;
     
   }
   
@@ -83,6 +89,9 @@
   }
 
 
+
+
+
 @media (max-width: 480px){
   
   
@@ -93,7 +102,6 @@
       
   }
   #navBar{ 
-    height: 70px;
     background-color: rgb(43, 41, 41);
     color: white;
     line-height: 70px;
@@ -123,13 +131,21 @@
     
 } 
 
+#icon{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: -56px;
+  fill: var(--primary-color);
+  transition: fill 200ms ease;
+}
+
 .sidenav {
     height: 100%;
-    width: 15%;
     position: fixed;
     z-index: 1;
-    margin-top: 11%;
-    right: 0;
+    margin-top: 70px;
     left: 0%;
     background-color: rgb(41, 40, 40);
     overflow-x: hidden;

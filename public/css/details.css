@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
-html,body{
+
+@media only screen and (min-width: 481px ) {
+  html,body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,7 +55,7 @@ h3{
   margin: 0 !important;
   padding: 0;
   position: absolute;
-  z-index: 4 !important;
+  z-index: 3 !important;
   width: 65%;
   height: 250px;
   top: 70px;
@@ -71,13 +73,13 @@ h3{
   height: 350px;
   top: 70px;
   left: 0;
-  z-index: 3 !important;
+  z-index: 2 !important;
   border-radius: 0 0 100% 0;
 }
 
 #firstSect>* {
   margin-top: 20px;
-  z-index: 5;
+  z-index: 4;
 }
 
 
@@ -113,7 +115,7 @@ h3{
   }
   #firePlace #campfire {
     position: absolute;
-    z-index: 5;
+    z-index: 4;
     margin: -25px auto 0 auto;
     width: 90px;
     height: 100px;
@@ -566,4 +568,233 @@ a{
     width: 90%;
 }
 
+}
 
+
+@media only screen and (max-width: 480px ) {
+
+  *,
+  *::before,
+  *::after {
+      box-sizing: border-box;
+  }
+  body,html{
+    overflow-x: hidden;
+
+  }
+  
+  body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #222;
+      background-image: linear-gradient(-10deg, #e3e5e6 35%, #d5d6d7 35%);  }
+  
+  
+  
+
+  
+  
+  
+  /** Blocks **/
+  
+  .recipe-overview {
+      padding-bottom: 80px;
+      position: relative;
+      z-index: 1;
+      background-color: var(--primary-color);
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
+      transition: background-color 200ms ease;
+  }
+  
+  
+  .recipe-details-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: stretch;
+      padding-top: 20px;
+      margin-top: -80px;
+      position: relative;
+  }
+  
+  
+  .recipe-details {
+      width: 200%;
+      padding: 70px 45px 30px 80px;
+      position: relative;
+      overflow: auto;
+  }
+  
+  .recipe-details::-webkit-scrollbar {
+      width: 3px;
+  }
+  
+  .recipe-details::-webkit-scrollbar-thumb {
+      background-color: var(--primary-color);
+  }
+  
+  
+  
+  /** Carousel **/
+  
+  .carousel {
+      display: flex;
+      padding: 20px calc((77% - 200px) / 2);
+      overflow: hidden;
+      margin-top: 50px;
+
+  }
+  
+  
+  .carousel__image {
+    width: 320px;
+    height: 240px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform 200ms ease;
+      margin-top: 30px;
+
+  }
+  
+  .carousel__image:not(.carousel__image--current) {
+      opacity: 0.5;
+      transform: scale(0.8);
+  }
+  
+  
+  .carousel__image--current {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  
+  /** Recipe **/
+  
+  .recipe {
+      padding: 0 60px 0 30px;
+  }
+  
+  
+  .recipe__title {
+      font-family: "Alegreya", serif;
+      font-size: 2.6em;
+      margin: 0;
+  }
+  
+  
+  .recipe__info {
+      display: inline-block;
+      margin: 0.75em 0;
+      font-weight: bold;
+      line-height: 16px;
+  }
+  
+  .recipe__info:not(:last-of-type) {
+      margin-right: 5px;
+  }
+  
+  
+  .recipe__description {
+      margin: 0;
+  }
+  
+  
+  .recipe__icon {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 70px;
+      left: 25px;
+      fill: var(--primary-color);
+      transition: fill 200ms ease;
+  }
+  
+  
+  
+  /** Ingredients **/
+  
+  .ingredients-title {
+      margin: 0;
+      font-size: inherit;
+  }
+  
+  
+  .ingredients {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+  }
+  
+  
+  .ingredient {
+      padding: 1em 0;
+  }
+  
+  .ingredient:not(:last-child) {
+      border-bottom: 2px dotted #ddd;
+  }
+  
+  
+  
+  /** Like Button **/
+  
+  .like-btn {
+      width: 50px;
+      height: 50px;
+      border: 0;
+      position: absolute;
+      top: 0;
+      right: 20px;
+      z-index: 2;
+      font-size: 0;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 1px 5px var(--primary-color);
+      transition: box-shadow 200ms ease, transform 200ms ease;
+      cursor: pointer;
+      outline: none;
+  }
+  
+  .like-btn:active {
+      transform: scale(0.9);
+  }
+  
+  
+  .like-btn path {
+      fill: var(--primary-color);
+      transition: fill 200ms ease;
+  }
+  
+}
+
+
+@media only screen and (min-width: 480px )  {
+
+
+  #main1{
+    display: block;
+  }
+  #main2{
+    display: none;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 480px )  {
+  
+  
+    #main1{
+      display: none;
+    }
+  
+    #main2{
+      display: block;
+    }
+    
+  }
