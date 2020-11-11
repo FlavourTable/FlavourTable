@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+ 
+    <link rel="stylesheet" href="../../../public/css/base.css">
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+    <link rel="stylesheet" href="../../../public/css/myFavorite.css">
 
     <title>Favorites</title>
 </head>
@@ -13,22 +18,32 @@
         <%- include('./header') %>
     </header>
 
-    <main>
-        <h1><b><%= favo.length %></b> Saved Recipes</h1>
+    <main id="main">
+        <div id="Mfav">
+        <h1 class="saved"><b><%= favo.length %></b> Saved Recipes</h1>
         <section>
+            <div class="FAV">
             <% favo.forEach((recipe) => { %>
             <article class='recipe-results'>
+                <figure class="wiggly wiggle2">
                 <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
-                <h2><%=recipe.title%></h2><br>
-                <h3>Ready In Min:<%=recipe.readyinminutes%></h3> <br>
+                <figcaption> <%=recipe.title%></figcaption>
+                <figcaption> Ready In Min: <%=recipe.readyinminutes%> </figcaption><br>
                 <a href="/favorite/<%= recipe.id %>"><button class='button'>View Recipe Details</button></a>
+            </figure>
             </article>
             <% }); %>
+        </div>
         </section>
+    </div>
     </main>
     <footer>
         <%- include('./footer') %>
     </footer>
+    
+    <script src="../../../public/js/app.js"></script>
+   
 </body>
+
 
 </html>
