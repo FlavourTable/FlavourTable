@@ -54,7 +54,7 @@
 
         <form action="/details" method="POST" style="width: 100%; height: 100%;">
             <input name="titleMatch" id="query" type="text" value="<%=recipe[0].title%> " style="display: none;">
-            <button class="buttonstyle" type="submit">Read Me </button>
+            <button class="buttonstyle" type="submit">Recipe Details</button>
         </form>
         
         
@@ -132,7 +132,14 @@
             <button id="prevPage" type="submit">Go Back</button>
         </form>
     </main>
-    <footer></footer>
+    
+
+    <%- include('./footer') %>
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -146,46 +153,46 @@
 
 ////////////////////
 
-function type($target) {
+// function type($target) {
     //stop typing when hover is off//
-    if ($target.Stop) {
-      return;
-    }
-    if ($target.index < $target.caption.length) {
-      $target.text($target.text() + $target.caption.charAt($target.index));
+  //   if ($target.Stop) {
+  //     return;
+  //   }
+  //   if ($target.index < $target.caption.length) {
+  //     $target.text($target.text() + $target.caption.charAt($target.index));
   
-      $target.index++;
+  //     $target.index++;
   
-      setTimeout(function() {
-        type($target);
-      }, 100);
-    }
-  }
-  $(document).ready(function() {
-    var $figures = $(".wiggly");
-    $figures.each(function() {
-      let $figure = $(this);
+  //     setTimeout(function() {
+  //       type($target);
+  //     }, 100);
+  //   }
+  // }
+  // $(document).ready(function() {
+  //   var $figures = $(".wiggly");
+  //   $figures.each(function() {
+  //     let $figure = $(this);
   
-      let $caption = $figure.find("figcaption");
+  //     let $caption = $figure.find("figcaption");
   
-      $caption.caption = $caption.text();
-      $caption.index = 0;
-      $caption.text("");
-      $caption.Stop = false;
-      let $img = $figure.find("img");
-      $figure.hover(
-        function(e) {
-          $caption.Stop = false;
-          type($caption);
-        },
-        function() {
-          $caption.Stop = true;
-          $caption.text("");
-          $caption.index = 0;
-        }
-      );
-    });
-  });
+  //     $caption.caption = $caption.text();
+  //     $caption.index = 0;
+  //     $caption.text("");
+  //     $caption.Stop = false;
+  //     let $img = $figure.find("img");
+  //     $figure.hover(
+  //       function(e) {
+  //         $caption.Stop = false;
+  //         type($caption);
+  //       },
+  //       function() {
+  //         $caption.Stop = true;
+  //         $caption.text("");
+  //         $caption.index = 0;
+  //       }
+  //     );
+  //   });
+  // });
 
 
 
