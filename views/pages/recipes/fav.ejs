@@ -8,46 +8,84 @@
     <link rel="stylesheet" href="../../../public/css/loading.css">
     <link rel="stylesheet" href="../../../public/css/details.css">
     <link rel="stylesheet" href="../../../public/css/modules.css">
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+    <link rel="stylesheet" href="../../../public/css/fav2.css">
+
 </head>
 
-<img src="<%= view.image_url %>" alt="">
-<h2 class="title"><%= view.title %></h2>
-<h3 class="author">Ready in min :<%= view.readyinminutes %></h3>
+<header><%- include('./header') %></header>
 
-<ol>
-    <% view.stepdetails.split('","').forEach(v=>{ %>
-    <li class="stepDetails"><%= v %></li>
-    <% }) %>
+<body>
 
 
+    <img src="<%= view.image_url %>" alt="">
+    <h2 class="title"><%= view.title %></h2>
+    <h3 class="author">Ready in min :<%= view.readyinminutes %></h3>
+
+    <ol>
+        <% view.stepdetails.replace('{\"','').replace('\"}','').split('","').forEach(v=>{ %>
+        <li class="stepDetails"><%= v %></li>
+        <% }) %>
+    </ol>
+
+    <button class="select">Update Details</button>
+
+    <form style="display: none;" class="hide-details" action="/favorite/<%=view.id%>?_method=PUT" method="POST">
 
 
-</ol>
-<button class="select">Update Details</button>
+        <input name="title" type="text" value="<%= view.title %>" />
+        <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
+        <input name="image" type="text" value="<%= view.image_url %>" style="display: none;" />
+        <textarea id="tex" name="stepdetails" type="text"><%= view.stepdetails %></textarea>
 
-<form style="display: none;" class="hide-details" action="/favorite/<%=view.id%>?_method=PUT" method="POST">
+        <div><button type="submit">Update Recipe</button></div>
 
+    </form>
 
-    <input name="title" type="text" value="<%= view.title %>" />
-    <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
-    <input name="image" type="text" value="<%= view.image_url %>" />
-
-
-    <input name="stepdetails" type="text" value="<%= view.stepdetails %>" />
-
-    <div><button type="submit">Update Recipe</button></div>
-
-</form>
+    <form>
 
 
-<form action="/favorite/<%=view.id%>?_method=Delete" method="POST">
-    <div><button type="submit">Delete Recipe</button></div>
-</form>
+        <input name="title" type="text" value="<%= view.title %>" />
+        <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
+        <input name="image" type="text" value="<%= view.image_url %>" style="display: none;" />
+        <textarea id="ff1" class="momy" name="stepdetails1" type="text"> </textarea>
+        <textarea id="ff2" class="momy" name="stepdetails2" type="text"> </textarea>
+
+
+
+    </form>
+
+
+    <button onclick="hahaha()">Upda Recipe</button>
+
+
+    <form action="/favorite/<%=view.id%>?_method=Delete" method="POST">
+        <div><button type="submit">Delete Recipe</button></div>
+    </form>
+
+    <!-- <a href="/search_name"><button>Back To Search</button></a> -->
+
+</body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
 
     $('.select').on('click', function () {
         $(this).next('form').removeAttr('style');
     });
 
+</script>
+
+<script src="../../../public/js/app.js"></script>
+
+<script>
+    function hahaha() {
+        var vv = $('.momy').map((_, el) => el.value).get();
+
+
+
+        console.log(vv);
+
+    }
 </script>
