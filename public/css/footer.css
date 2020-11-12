@@ -1,0 +1,28 @@
+.footer  {
+    clear: both;
+    padding: 65px 10px;
+    background: rgb(43, 41, 41);
+    color: #fff;
+    text-align: center;
+    
+    border-top: solid 15px #9d9fa1;
+}
+.footer a{
+    font-size: 24px !important;
+    margin: 8px;
+}
+.footer p{
+    font-size: 25px !important;
+}
+#copyright{
+    font-size: 15px !important;
+}
+
+a:link, a:visited {
+    color: #8d8989;
+   
+}
+
+.icons{
+    font-size: 25px;
+}

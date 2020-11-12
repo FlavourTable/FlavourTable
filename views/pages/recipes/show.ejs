@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+
+
+    <!-- <link rel="stylesheet" href="../../../public/css/index.css"> -->
+    <link rel="stylesheet" href="../../../public/css/base.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    <link rel="stylesheet" href="../../../public/css/new.css">
+
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+
+
+    <!-- <link rel="stylesheet" href="../../../public/css/slider.css"> -->
+
+    <link rel="stylesheet" href="../../../public/css/show.css">
+
+
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+
+</head>
+<!-- <div id="load"></div> -->
+
+
+<body>
+    <header>
+        <%- include('./header') %>
+
+    </header>
+
+    <div class="theTitle">
+        <h1>CHOOSE YOUR MEAL</h1>
+    </div>
+    <main>
+        <div class="container">
+            <div class="all">
+
+
+
+                <% recipeResults.forEach(recipe=>{ %>
+
+
+                <div class="theFigure">
+                    <figure class="wiggly wiggle1">
+
+                        <img class="imagesSec" src="<%=recipe[0].image%>" alt="">
+
+
+
+
+
+                        <figcaption><%=recipe[0].title%></figcaption>
+
+                        <form action="/details" method="POST" style="width: 100%; height: 100%;">
+                            <input name="titleMatch" id="query" type="text" value="<%=recipe[0].title%> "
+                                style="display: none;">
+                            <button class="buttonstyle" type="submit">Recipe Details</button>
+                        </form>
+
+
+
+                        <div class="heart-wrapper">
+
+
+                            <form class="hide-form" action="/favorite" method="post">
+                                <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
+                                <input name="readyInMinutes" type="text" value="<%=  recipe[0].readyInMinutes %>"
+                                    style="display: none;" />
+                                <input name="image" type="text" value="<%= recipe[0].image %>" style="display: none;" />
+                                <input name="summary" type="text" value="<%= recipe[0].summary %>"
+                                    style="display: none;" />
+                                <% recipe[1].forEach(v=>{ %>
+                                <% v.forEach(w=>{ %>
+                                <input name="stepDetails" type="text" value=" <%= w.stepDetails %>"
+                                    style="display: none;" />
+                                <% }) %>
+                                <% }) %>
+
+
+                                <button class="far fa-heart" id="/favorite/<%=recipe[0].id%>" type="submit"></button>
+
+                            </form>
+
+
+
+
+                        </div>
+                    </figure>
+                </div>
+
+
+                <% }) %>
+            </div>
+        </div>
+
+
+
+
+
+
+        <p id="checknext"> </p>
+
+       
+
+
+
+    </main>
+    <div id="afterMain" style="display: flex;justify-content: center;">
+        <form action="/search_name" method="POST">
+            <input name="query" value="<%=nioh.searchVar%>" style="display: none;">
+            <br>
+            <input name="page" value="<%=nioh.page%>" style="display: none;">
+            <br>
+            <input name="includeIngredients" value="<%=nioh.ining%>" style="display: none;">
+            <br>
+            <input name="excludeIngredients" value="<%=nioh.excing%>" style="display: none;">
+            <br>
+            <input name="diet" value="<%=nioh.diet%>" style="display: none;">
+            <br>
+            <input name="cuisine" value="<%=nioh.cuisine%>" style="display: none;">
+            <br>
+            <button id="lastSub" type="submit">See More</button>
+        </form>
+        <p id="currPage"><%=nioh3.page%></p>
+        <form action="/search_name" method="POST">
+            <input name="query" value="<%=nioh2.searchVar%>" style="display: none;">
+            <br>
+            <input name="page" value="<%=nioh2.page%>" style="display: none;">
+            <br>
+            <input name="includeIngredients" value="<%=nioh2.ining%>" style="display: none;">
+            <br>
+            <input name="excludeIngredients" value="<%=nioh2.excing%>" style="display: none;">
+            <br>
+            <input name="diet" value="<%=nioh2.diet%>" style="display: none;">
+            <br>
+            <input name="cuisine" value="<%=nioh2.cuisine%>" style="display: none;">
+            <br>
+            <button id="prevPage" type="submit">Go Back</button>
+        </form>
+
+    </div>
+
+
+    <%- include('./footer') %>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("ready!");
+            if (document.getElementById('currPage').textContent == 1) {
+                document.getElementById('prevPage').style.display = 'none';
+            }
+            console.log(document.getElementById('currPage').textContent);
+        });
+
+
+
+
+        $(".fa-heart").click(function () {
+            $(this).toggleClass("background-heart");
+        });
+
+
+
+
+    </script>
+    <script src="../../../public/js/app.js"></script>
+    <script src="../../../public/js/loading.js"></script>
+</body>
+
+</html>

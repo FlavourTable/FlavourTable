@@ -1,0 +1,178 @@
+a{
+  text-decoration: none;
+}
+  #navBar{ 
+    height: 80px;
+    background-color: rgb(43, 41, 41);
+    color: white;
+    line-height: 80px;
+    font-size: 30px;
+     text-align: center;
+     box-shadow: 0 0 20px #cccccc;
+     position: fixed;
+     width: 100%;
+     top: 0;
+     z-index: 5;
+     top: 0;
+     left: 0;
+
+}
+#menu{
+  position: fixed;
+  top: 5px;
+  left: 17px;
+  z-index: 20000;
+}
+
+
+
+#div_nav{
+  
+    height: 100px;
+    line-height: 45px;
+    background: #4A4A4A;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    box-shadow: 0 0 10px #cccccc;
+    position: fixed;
+    z-index: 50;
+}
+
+ #side-nav{
+    position: absolute;
+    top: 17px;
+    z-index: 5;
+    left: 1%;
+    /* position: fixed; */
+    
+} 
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  z-index: 1000;
+  position: fixed;
+  z-index: 1;
+  margin-top: 70px;
+  right: 0;
+  top: 0;
+  left: 0%;
+  background-color: rgb(41, 40, 40);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+  position: fixed;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+
+
+
+@media (max-width: 480px){
+  
+  
+  body{
+      /* width: 480; */
+      
+      margin: 0 auto;
+      
+  }
+  #navBar{ 
+    background-color: rgb(43, 41, 41);
+    color: white;
+    line-height: 70px;
+    font-size: 18px;
+     /* padding-left: 50%;  */
+     text-align: center;
+     box-shadow: 0 0 20px #cccccc;
+}
+
+#div_nav{
+  
+    height: 100px;
+    line-height: 45px;
+    background: #4A4A4A;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    box-shadow: 0 0 10px #cccccc;
+}
+
+ #side-nav{
+    position: absolute;
+    top: 17px;
+    z-index: 5;
+    left: 1%;
+    
+} 
+
+#icon{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: -56px;
+  fill: var(--primary-color);
+  transition: fill 200ms ease;
+}
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    margin-top: 70px;
+    left: 0%;
+    background-color: rgb(41, 40, 40);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10px;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+}

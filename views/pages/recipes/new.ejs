@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+    <link rel="stylesheet" href="../../../public/css/index.css">
+    <link rel="stylesheet" href="../../../public/css/base.css">
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../public/css/loading.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    <link rel="stylesheet" href="../../../public/css/new.css">
+    <title>Ingredients</title>
+
+</head>
+
+<body>
+
+    <div id="load"></div>
+
+    <header><%- include('./header') %></header>
+
+    <div id="all">
+
+    </div>
+
+    <main>
+        <section>
+
+            <div class="container">
+
+
+                <div id="general" style="background-color:#e7e6e5;">
+                    <div id="buttonForm">
+                        <div id="buttons">
+
+                            <button class="select"> <img src="../../../public/images/fork (1).png" height="30px"
+                                    width="30pxs" alt=""> <br> Name</button>
+                            <button class="ingSelect"> <img src="../../../public/images/grocery.png" height="30px"
+                                    width="30pxs" alt=""> <br>Ingredient</button>
+                            <button class="dietSelect"> <img src="../../../public/images/meal.png" height="30px"
+                                    width="30pxs" alt=""> <br> Diet</button>
+                            <button class="cuisineSelect"><img src="../../../public/images/chef.png" height="30px"
+                                    width="30pxs" alt=""> <br>Cuisine</button>
+                            <button class="type"> <img src="../../../public/images/spaguetti.png" height="30px"
+                                    width="30pxs" alt=""> <br> Type</button>
+
+                        </div>
+                        <div class="box">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+
+                            <div class="content">
+
+
+
+                                <div class="sANM">
+                                    <h4 class="h4">Search Here</h4>
+
+                                    <form action="/search_name" method="POST" id="form1">
+                                        <input name="query" id="query" type="text" placeholder="Enter Meal Name"
+                                            style="display: none;">
+                                        <br>
+                                        <input name="page" id="page" type="text" value="1" style="display: none;">
+                                        <br>
+                                        <input name="includeIngredients" class="includeIngredients" type="text"
+                                            placeholder="Enter Included Ingredient" style="display: none;">
+                                        <br>
+                                        <input name="excludeIngredients" class="includeIngredients" type="text"
+                                            placeholder="Enter Excluded Ingredient" style="display: none;">
+                                        <br>
+                                        <select name="diet" id="diet" style="display: none;">
+                                            <optgroup>
+                                                <option value="none">None</option>
+                                                <option value="Gluten Free"> Gluten Free</option>
+                                                <option value="Ketogenic">Ketogenic</option>
+                                                <option value="Vegetarian">Vegetarian</option>
+                                                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                                                <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                                                <option value="Vegan">Vegan</option>
+                                                <option value="Pescetarian">Pescetarian</option>
+                                                <option value="Paleo">Paleo</option>
+                                                <option value="Primal">Primal</option>
+                                                <option value="Whole30">Whole30</option>
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <select name="cuisine" id="cuisine" style="display: none;">
+                                            <optgroup>
+                                                <option value="all">All</option>
+                                                <option value="American"> American</option>
+                                                <option value="Mexican">Mexican</option>
+                                                <option value="Middle-Eastern">Middle Eastern</option>
+                                                <option value="Italian">Italian</option>
+                                                <option value="Chinese">Chinese</option>
+                                                <option value="Indian">Indian</option>
+                                                <option value="Korean">Korean</option>
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <select name="type" id="type" style="display: none;">
+                                            <optgroup>
+                                                <option value="all">all</option>
+                                                <option value="drink">Drink</option>
+                                                <option value="snack">Snack</option>
+                                                <option value="main course">Main course</option>
+                                                <option value="dessert">Dessert</option>
+                                                <option value="breakfast">Breakfast</option>
+                                                <option value="soup">Soup</option>
+                                                <option value="sauce">Sauce</option>
+                                                <option value="side dish">Side dish</option>
+
+                                            </optgroup>
+                                        </select>
+                                        <br>
+                                        <button type="submit" id="sub">Search</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <%- include('./footer') %>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>
+        if ($('#query').css('display') == 'none') {
+            $('.select').on('click', function () {
+                $('#query').toggle();
+
+            })
+        }
+
+        if ($('.includeIngredients').css('display') == 'none') {
+            $('.ingSelect').on('click', function () {
+                $('.includeIngredients').toggle();
+
+            })
+        }
+
+        if ($('#diet').css('display') == 'none') {
+            $('.dietSelect').on('click', function () {
+                $('#diet').toggle();
+
+            })
+        }
+
+        if ($('#cuisine').css('display') == 'none') {
+            $('.cuisineSelect').on('click', function () {
+                $('#cuisine').toggle();
+
+            })
+        }
+        if ($('#type').css('display') == 'none') {
+            $('.type').on('click', function () {
+                $('#type').toggle();
+
+            })
+        }
+    </script>
+    <script src="../../../public/js/loading.js"></script>
+    <script src="../../../public/js/app.js"></script>
+</body>
+
+</html>
