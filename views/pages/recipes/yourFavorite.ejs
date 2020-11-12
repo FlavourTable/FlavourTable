@@ -26,7 +26,7 @@
             <% favo.forEach((recipe) => { %>
             <article class='recipe-results'>
                 <figure class="wiggly wiggle2">
-                <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
+                <img class="imageF" src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
                 <figcaption> <%=recipe.title%></figcaption>
                 <figcaption> Ready In Min: <%=recipe.readyinminutes%> </figcaption><br>
                 <a href="/favorite/<%= recipe.id %>"><button class='button'>View Recipe Details</button></a>

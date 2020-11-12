@@ -9,11 +9,15 @@
 
     <!-- <link rel="stylesheet" href="../../../public/css/index.css"> -->
     <link rel="stylesheet" href="../../../public/css/base.css">
-    <link rel="stylesheet" href="../../../public/css/layout.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../public/css/loading.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
     <link rel="stylesheet" href="../../../public/css/new.css">
+
+    <link rel="stylesheet" href="../../../public/css/layout.css">
+
+
     <!-- <link rel="stylesheet" href="../../../public/css/slider.css"> -->
 
     <link rel="stylesheet" href="../../../public/css/show.css">
@@ -45,7 +49,9 @@
 
                 <div class="theFigure">
                     <figure class="wiggly wiggle1">
-                        <img src="<%=recipe[0].image%>" alt="">
+
+                        <img class="imagesSec" src="<%=recipe[0].image%>" alt="">
+
 
 
 
@@ -61,6 +67,7 @@
 
 
                         <div class="heart-wrapper">
+
 
                             <form class="hide-form" action="/favorite" method="post">
                                 <input name="title" type="text" value="<%= recipe[0].title %>" style="display: none;" />
@@ -83,15 +90,10 @@
 
 
 
+
                         </div>
                     </figure>
                 </div>
-
-
-
-
-
-
 
 
                 <% }) %>
@@ -104,6 +106,13 @@
 
 
         <p id="checknext"> </p>
+
+       
+
+
+
+    </main>
+    <div id="afterMain" style="display: flex;justify-content: center;">
         <form action="/search_name" method="POST">
             <input name="query" value="<%=nioh.searchVar%>" style="display: none;">
             <br>
@@ -135,7 +144,8 @@
             <br>
             <button id="prevPage" type="submit">Go Back</button>
         </form>
-    </main>
+
+    </div>
 
 
     <%- include('./footer') %>
@@ -153,51 +163,6 @@
             }
             console.log(document.getElementById('currPage').textContent);
         });
-
-
-        ////////////////////
-
-        // function type($target) {
-        //stop typing when hover is off//
-        //   if ($target.Stop) {
-        //     return;
-        //   }
-        //   if ($target.index < $target.caption.length) {
-        //     $target.text($target.text() + $target.caption.charAt($target.index));
-
-        //     $target.index++;
-
-        //     setTimeout(function() {
-        //       type($target);
-        //     }, 100);
-        //   }
-        // }
-        // $(document).ready(function() {
-        //   var $figures = $(".wiggly");
-        //   $figures.each(function() {
-        //     let $figure = $(this);
-
-        //     let $caption = $figure.find("figcaption");
-
-        //     $caption.caption = $caption.text();
-        //     $caption.index = 0;
-        //     $caption.text("");
-        //     $caption.Stop = false;
-        //     let $img = $figure.find("img");
-        //     $figure.hover(
-        //       function(e) {
-        //         $caption.Stop = false;
-        //         type($caption);
-        //       },
-        //       function() {
-        //         $caption.Stop = true;
-        //         $caption.text("");
-        //         $caption.index = 0;
-        //       }
-        //     );
-        //   });
-        // });
-
 
 
 
