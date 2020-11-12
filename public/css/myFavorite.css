@@ -50,7 +50,7 @@ color: black;
 main figure:hover{
   box-shadow: 0 8px 16px 0 white;
 }
-img {
+.imageF {
   width: 100%;
   display: block;
   box-shadow: 0px 0px 12px 3px rgb(71, 71, 71);
