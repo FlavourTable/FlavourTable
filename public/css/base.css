@@ -6,6 +6,12 @@ html,body{
 	overflow-x: hidden;
 }
 
+body{
+
+	min-height: 100vh;
+}
+
+
 /* ============================== */
 /* loading logo */
 

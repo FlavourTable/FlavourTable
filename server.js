@@ -100,7 +100,7 @@ function deletebook(req, res) {
     let SQL = `DELETE FROM recipe WHERE id=$1;`;
     let val = [req.params.id];
 
-    client.query(SQL, val).then(res.redirect('/index')).catch(console.error);
+    client.query(SQL, val).then(res.redirect('/yourFavorite')).catch(console.error);
 
 }
 
@@ -146,6 +146,7 @@ function details(req, res) {
 
 
     let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOONACULAR_API_KEY}`;
+    console.log(process.env.SPOONACULAR_API_KEY);
     return superagent.get(url)
         .query(queryParams)
         .then(value => {
