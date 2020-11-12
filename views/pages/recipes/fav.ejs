@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorites</title>
     <link rel="stylesheet" href="../../../public/css/loading.css">
-    <link rel="stylesheet" href="../../../public/css/details.css">
     <link rel="stylesheet" href="../../../public/css/modules.css">
     <link rel="stylesheet" href="../../../public/css/layout.css">
     <link rel="stylesheet" href="../../../public/css/fav2.css">
@@ -17,24 +16,86 @@
 
 <body>
 
+<!-- ------------------------------------------------------------------------------- -->
 
-    <img src="<%= view.image_url %>" alt="">
-    <h2 class="title"><%= view.title %></h2>
-    <h3 class="author">Ready in min :<%= view.readyinminutes %></h3>
+<div id="content" style="flex-direction: column;align-items: unset;margin-top: 80px;">
+    <div id="firstSect">
 
-    <ol>
-        <% view.stepdetails.replace('{\"','').replace('\"}','').split('","').forEach(v=>{ %>
-        <li class="stepDetails"><%= v %></li>
-        <% }) %>
-    </ol>
+        <div id="skew"></div>
+        <div id="skew2"></div>
 
-    <button class="select">Update Details</button>
+        <div>
+            <h2><%= view.title %></h2>
 
-    <form style="display: none;" class="hide-details" action="/favorite/<%=view.id%>?_method=PUT" method="POST">
+            <div style="display: flex;">
+
+                <h3>Ready In Min:<%= view.readyinminutes %> <br>
+
+            </div>
 
 
-        <input name="title" type="text" value="<%= view.title %>" />
-        <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
+        </div>
+
+
+        <img src="<%= view.image_url %>" alt="" class="preview-img">
+
+
+    </div>
+
+    <div id="firePlace">
+        <div id="campfire">
+            <div id="logs">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="flames">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="width: 70%; padding: 60px 0;margin: 150px auto 60px;">
+        <h2 style="text-align: center;">Preparing Steps</h2>
+        <div>
+
+            <ol>
+                <% view.stepdetails.replace('{\"','').replace('\"}','').split('","').forEach(v=>{ %>
+
+                    <li class="stepDetails">
+                        <div>
+                            <input type="checkbox" name="my-checkbox" id="<%= v %>">
+                            <label class="step line" for="<%= v %>"><%= v %></label>
+                        </div>
+                    </li>
+                
+    
+                <% }) %>
+            </ol>
+
+
+
+
+            <button name="checkbox" id="steev" onclick="uncheckAll()">Do It Again</button>
+
+        </div>
+
+    </div>
+
+
+
+<!-- ------------------------------------------------------------------------------- -->
+
+
+
+    <form id="theRealUpdateForm" style="display: none;" class="hide-details" action="/favorite/<%=view.id%>?_method=PUT" method="POST">
+
+
+        <input id="theRealTitle" name="title" type="text" value="<%= view.title %>" />
+        <input id="theRealTime" name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
         <input name="image" type="text" value="<%= view.image_url %>" style="display: none;" />
         <textarea id="tex" name="stepdetails" type="text"><%= view.stepdetails %></textarea>
 
@@ -42,28 +103,45 @@
 
     </form>
 
-    <form>
 
 
-        <input name="title" type="text" value="<%= view.title %>" />
-        <input name="readyinminutes" type="text" value="<%= view.readyinminutes %>" />
-        <input name="image" type="text" value="<%= view.image_url %>" style="display: none;" />
-        <textarea id="ff1" class="momy" name="stepdetails1" type="text"> </textarea>
-        <textarea id="ff2" class="momy" name="stepdetails2" type="text"> </textarea>
+    <div id="editForm" style="display: none;">
+
+        <form id="editMaBoi">
+
+            <h3>Title</h3>
+            <textarea id="ff3" type="text" name="title"><%= view.title %> </textarea>
+            <br>
+            <h3>Ready In Min</h3>
+            <textarea id="ff4" type="text" name="readyinminutes"><%= view.readyinminutes %> </textarea>
+            <br>
+            <h3>Steps</h3>
+            <textarea id="ff1" class="momy" name="stepdetails1" type="text"> </textarea>
+            <textarea id="ff2" class="momy" name="stepdetails2" type="text"> </textarea>
+    
+    
+    
+        </form>
+    
+        <div id="apply">
+            <button onclick="addtex()">Add Step Area</button>
+    
+            <button onclick="hahaha()">Apply Changes</button>
+        </div>
+        
+    </div>
+
+    <div id="controlPanal">
+        <button onclick="displayEdit()" style="width: 20%;"> Edit</button>
 
 
+        <form style="width:20%;" action="/favorite/<%=view.id%>?_method=Delete" method="POST">
+            <button style="width:100%" type="submit">Delete Recipe</button>
+        </form>
+    </div>
+    
 
-    </form>
-
-
-    <button onclick="hahaha()">Upda Recipe</button>
-
-
-    <form action="/favorite/<%=view.id%>?_method=Delete" method="POST">
-        <div><button type="submit">Delete Recipe</button></div>
-    </form>
-
-    <!-- <a href="/search_name"><button>Back To Search</button></a> -->
+    <%- include('./footer') %>
 
 </body>
 
@@ -80,12 +158,38 @@
 <script src="../../../public/js/app.js"></script>
 
 <script>
+
+    function addtex(){
+
+        $('#editMaBoi').append('<textarea class="momy">Some Stuff Here</textarea>')
+    }
+
     function hahaha() {
-        var vv = $('.momy').map((_, el) => el.value).get();
+
+        let a =$('#ff3').val()
+        $('#theRealTitle').attr('value', a )
+
+        let b =$('#ff4').val()
+        $('#theRealTime').attr('value', b )
 
 
+        let e =$('#ff1').val()
 
-        console.log(vv);
+        if(e !== ' ' && e !== ''){
+            var vv = $('.momy').map((_, el) => el.value).get();
+        $('#tex').text(vv.join('","'))
+        }
+        
+        document.getElementById("theRealUpdateForm").submit();
+    }
 
+    function displayEdit(){
+        let stat = $('#editForm').css('display')
+
+        if(stat== 'none'){
+            $('#editForm').css('display','flex')
+        }else if(stat== 'flex'){
+            $('#editForm').css('display','none')
+        }
     }
 </script>
